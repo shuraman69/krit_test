@@ -1,5 +1,10 @@
 // Cache references to DOM elements.
-var elms = ['station0', 'title0', 'live0', 'playing0', 'song0', 'station1', 'title1', 'live1', 'playing1', 'song1', 'station2', 'title2', 'live2', 'playing2', 'song2'];
+var elms = ['station0', 'title0', 'live0', 'playing0', 'song0', 
+'station1', 'title1', 'live1', 'playing1', 'song1', 
+'station2', 'title2', 'live2', 'playing2', 'song2', 
+'station3', 'title3', 'live3', 'playing3', 'song3',
+'station4', 'title4', 'live4', 'playing4', 'song4'
+];
 elms.forEach(function(elm) {
   window[elm] = document.getElementById(elm);
 });
@@ -109,41 +114,43 @@ Radio.prototype = {
 var radio = new Radio([
   {
     freq: '1. ',
-    title: "NMCP beats 24/7",
+    title: "Scratchlords",
     src: 'https://admin.scratch.radio/radio/8000/radio.mp3',
     howl: null
   },
   {
     freq: '2. ',
-    title: "Beats for scratch 24/7",
+    title: "Looperbeats",
     src: 'https://admin.scratch.radio/radio/8010/radio.mp3',
     howl: null
   },
   {
     freq: '3. ',
-    title: "Scratch DJs music 24/7",
+    title: "Dubstation",
     src: 'https://admin.scratch.radio/radio/8020/radio.mp3',
-    howl: null
-  }/*,
-  {
-    freq: '103.3',
-    title: "80's Hits",
-    src: 'http://tunein4.streamguys1.com/80shtfree1',
     howl: null
   },
   {
-    freq: '107.7',
-    title: "Today's Hits",
-    src: 'http://rfcmedia.streamguys1.com/MusicPulse.mp3',
+    freq: '4. ',
+    title: "Zaebeats",
+    src: 'https://admin.scratch.radio/radio/8030/radio.mp3',
     howl: null
-  }*/
+  },
+  {
+    freq: '5',
+    title: "Nmcpstudio",
+    src: 'https://admin.scratch.radio/radio/8040/radio.mp3',
+    howl: null
+  }
 ]);
 function setDynamicData() {
   $.ajax({
     url: "/api/index.php",
+    method: 'POST',
     context: document.body,
-    dataType: 'json'
-  }).done(function(data) {
+    dataType: 'json',
+
+  }).then(function(data) {
     $.each(data, function(i, item) {
         $('#song' + i).text(item.title);
         $('#time' + i).text(item.elapsed + ' / ' + item.length);

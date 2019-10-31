@@ -11,7 +11,7 @@ $res = [];
 
 $nowPlaying = $api->nowPlaying();
 
-for ($i=0; $i < 3; $i++) { 
+for ($i=0; $i < 5; $i++) { 
     $res[$i]['title'] = $nowPlaying[$i]->getCurrentSong()->getSong()->getTitle();
     $res[$i]['elapsed'] = gmdate("i:s", $nowPlaying[$i]->getCurrentSong()->getElapsed());
     $res[$i]['remaining'] = gmdate("i:s", $nowPlaying[$i]->getCurrentSong()->getRemaining());

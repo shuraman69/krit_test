@@ -55,6 +55,36 @@
       </div>
     </div>
   </div>
+  <div id="station3" class="station">
+    <div class="title">
+      <div id="title3" class="subtitle"></div>
+      <div id="live3" class="live">LIVE</div>
+      <div id="song3" class="song"></div>
+      <div id="time3" class="time"></div>
+      <div id="playing3" class="playing">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+    </div>
+  </div>
+  <div id="station4" class="station">
+    <div class="title">
+      <div id="title4" class="subtitle"></div>
+      <div id="live4" class="live">LIVE</div>
+      <div id="song4" class="song"></div>
+      <div id="time4" class="time"></div>
+      <div id="playing4" class="playing">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+    </div>
+  </div>
   <div class="padding"></div>
 
   <!-- Scripts -->
