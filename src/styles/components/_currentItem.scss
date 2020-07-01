@@ -1,0 +1,47 @@
+.currentItem {
+  &__figure {
+    @include breakpoint(sm) {
+      display: flex;
+      width: 56px;
+      height: 57px;
+    }
+  }
+  &__contains {
+    @include breakpoint(sm) {
+      width: calc(100% - 56px);
+      padding-left: 24px;
+    }
+    @include breakpoint(md) {
+      padding-left: 31px;
+    }
+  }
+  &__name {
+    @include breakpoint(sm) {
+      display: block;
+      margin-bottom: 4px;
+      color: $gold;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  &__description {
+    @include breakpoint(sm) {
+      display: block;
+      margin-bottom: 8px;
+      color: $white;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  &__timer {
+    @include breakpoint(sm) {
+      display: block;
+      color: $white;
+      font-size: 10px;
+    }
+  }
+}

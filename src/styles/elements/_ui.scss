@@ -1,0 +1,75 @@
+body {
+  color: $gray;
+}
+.title {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: $white;
+  @include breakpoint(sm) {
+    font-size: 34px;
+    margin-bottom: 26px;
+  }
+}
+.link {
+  text-decoration: none;
+  color: $gray-light;
+  @include breakpoint(lg) {
+    transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
+    &:hover {
+      color: $white;
+    }
+  }
+  &--theme {
+    &_gold {
+      color: $gold;
+    }
+    &_gray {
+      color: $gray;
+    }
+    &_dark {
+      color: $gray-dark;
+    }
+  }
+}
+.text {
+  font-size: 12px;
+  line-height: 1.6;
+  color: $gray;
+  @include breakpoint(sm) {
+    font-size: 16px;
+    line-height: 2;
+  }
+  &--theme {
+    &_gold {
+      color: $gold;
+    }
+    &_light {
+      color: $gray-light;
+    }
+    &_dark {
+      color: $gray-dark;
+    }
+  }
+  &--size {
+    &_sm {
+      font-size: 10px;
+      @include breakpoint(sm) {
+        font-size: 12px;
+      }
+      @include breakpoint(md) {
+        font-size: 14px;
+      }
+    }
+  }
+  &--offset {
+    &_bottom {
+      display: block;
+      margin-bottom: 18px;
+      @include breakpoint(sm) {
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
