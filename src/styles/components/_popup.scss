@@ -1,0 +1,67 @@
+.popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.24s ease-in;
+  pointer-events: none;
+  &--visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+  &__content {
+    height: 100%;
+  }
+  &__container {
+    height: 100%;
+    padding: 25px;
+    position: relative;
+    z-index: 1;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+}
+
+.stationDetail {
+  background-repeat: no-repeat;
+  background-size: cover;
+  .popup__content {
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+  &__name {
+    color: $gray-light;
+    font-size: 12px;
+    @include breakpoint(sm) {
+      font-size: 18px;
+    }
+  }
+  &__figure {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+  &__description {
+    font-size: 12px;
+    color: $gray-light;
+    text-align: center;
+    @include breakpoint(sm) {
+      font-size: 18px;
+    }
+  }
+}

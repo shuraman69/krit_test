@@ -25,11 +25,18 @@ function Station({ active = null, onClick = (f) => f, wss = "" }) {
     },
   });
 
+  const [openPopup, setOpenPopup] = React.useState(false);
+
   const connect = (ws) => {
     ws.onmessage = (response) => {
       const data = JSON.parse(response.data);
       setStationData(data);
     };
+  };
+
+  const openMenu = (e) => {
+    e.stopPropagation();
+    setOpenPopup(!openPopup);
   };
 
   React.useEffect(() => {
@@ -43,42 +50,95 @@ function Station({ active = null, onClick = (f) => f, wss = "" }) {
   }, [wss]);
 
   return (
-    <div
-      onClick={onClick}
-      className={active ? "stationItem stationItem--current" : "stationItem"}
-    >
-      <div className="stationItem__container container">
-        <figure className="stationItem__figure">
-          <img
-            src={stationData.now_playing.song.art}
-            alt={stationData.station.shortcode}
-            className="stationItem__image"
-          />
-        </figure>
-        <div className="stationItem__contains">
-          <span className="stationItem__name">
-            {stationData.station.name}
-            {stationData.live.is_live && (
-              <span className="status stationItem__status">live</span>
+    <React.Fragment>
+      <div
+        onClick={onClick}
+        className={active ? "stationItem stationItem--current" : "stationItem"}
+      >
+        <div className="stationItem__container container">
+          <figure className="stationItem__figure">
+            <img
+              src={stationData.now_playing.song.art}
+              alt={stationData.station.shortcode}
+              className="stationItem__image"
+            />
+          </figure>
+          <div className="stationItem__contains">
+            <span className="stationItem__name">
+              {stationData.station.name}
+              {stationData.live.is_live && (
+                <span className="status stationItem__status">live</span>
+              )}
+              <span
+                className="status status--more stationItem__status"
+                onClick={(e) => openMenu(e)}
+              >
+                show more
+              </span>
+            </span>
+            <span className="stationItem__description">
+              {stationData.now_playing.song.title}
+            </span>
+            {active && (
+              <div className="timer stationItem__timer">
+                <span className="timer__count">
+                  {getTime(stationData.now_playing.elapsed)}
+                </span>
+                /
+                <span className="timer__count">
+                  {getTime(stationData.now_playing.duration)}
+                </span>
+              </div>
             )}
-          </span>
-          <span className="stationItem__description">
-            {stationData.now_playing.song.title}
-          </span>
-          {active && (
-            <div className="timer stationItem__timer">
-              <span className="timer__count">
-                {getTime(stationData.now_playing.elapsed)}
-              </span>
-              /
-              <span className="timer__count">
-                {getTime(stationData.now_playing.duration)}
-              </span>
-            </div>
-          )}
+          </div>
         </div>
       </div>
-    </div>
+      <div
+        className={
+          openPopup
+            ? "popup popup--visible stationDetail"
+            : "popup stationDetail"
+        }
+        style={{
+          backgroundImage: `url(${stationData.now_playing.song.art})`,
+        }}
+      >
+        <div className="popup__content">
+          <div className="popup__container">
+            <div className="popup__header">
+              <button type="button" className="backButton" onClick={openMenu}>
+                <svg
+                  width={12}
+                  height={23}
+                  viewBox="0 0 12 23"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.2186 21.4055L2.00002 11.0444L11.2186 1.00007"
+                    stroke="#E7ECFF"
+                    strokeWidth={2}
+                  />
+                </svg>
+              </button>
+              <span className="stationDetail__name">
+                {stationData.station.name}
+              </span>
+              <div></div>
+            </div>
+            <figure className="stationDetail__figure">
+              <img
+                src={stationData.now_playing.song.art}
+                alt={stationData.station.shortcode}
+              />
+            </figure>
+            <div className="stationDetail__description">
+              {stationData.now_playing.song.title}
+            </div>
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
   );
 }
 
