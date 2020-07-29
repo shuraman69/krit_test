@@ -10,10 +10,10 @@ function App() {
       <div className="content">
         <BrowserRouter>
           <Header />
-          <Route path="/" component={Main}></Route>
-          <Route path="/about" exact component={About}></Route>
-          <Route path="/partners" exact component={Partners}></Route>
-          <Route path="/support" exact component={Support}></Route>
+          <Route path="/v2/build/" component={Main}></Route>
+          <Route path="/v2/build/about/" exact component={About}></Route>
+          <Route path="/v2/build/partners/" exact component={Partners}></Route>
+          <Route path="/v2/build/support/" exact component={Support}></Route>
         </BrowserRouter>
       </div>
     </div>

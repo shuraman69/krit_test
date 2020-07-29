@@ -1,22 +1,22 @@
 export const headerRoutes = [
   {
     id: 1,
-    path: "/",
+    path: "/v2/build/",
     name: "Main",
   },
   {
     id: 2,
-    path: "/about",
+    path: "/v2/build/about/",
     name: "About",
   },
   {
     id: 3,
-    path: "/partners",
+    path: "/v2/build/partners/",
     name: "Partners",
   },
   {
     id: 4,
-    path: "/support",
+    path: "/v2/build/support/",
     name: "Support project",
   },
 ];

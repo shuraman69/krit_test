@@ -1,6 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { Station, Audio } from "../components";
+import { Station, AudioAudio } from "../components";
+
+let a = new Audio();
 
 const stations = [
   {
@@ -34,6 +36,9 @@ function Main() {
   const [chosen, setChosen] = React.useState(null);
   const location = useLocation().pathname;
 
+  //Когда здесь объявлено - в iphone работает.
+  //let a = new Audio();
+
   const selectStation = (item) => {
     setChosen(item);
   };
@@ -41,7 +46,7 @@ function Main() {
   return (
     <div
       className={
-        location === "/"
+        location === "/v2/build/"
           ? "container container--offset_top container--offset_left container--offset_bottom"
           : "hidden-block"
       }
@@ -54,10 +59,10 @@ function Main() {
               active={station === chosen}
               onClick={() => selectStation(station)}
             />
-            <Audio
+            <AudioAudio
               src={station.src}
               active={station === chosen}
-              onClick={() => selectStation(station)}
+              audio={a}
             />
           </React.Fragment>
         ))}
