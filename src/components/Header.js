@@ -1,11 +1,11 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import { headerRoutes } from "../routes";
-import { Logo } from "../elements";
+import { routes } from '../routes';
+import { Logo } from '../elements';
 
-import appStore from "../assets/download/app-store.svg";
-import googlePlay from "../assets/download/google-play.svg";
+import appStore from '../assets/download/app-store.svg';
+import googlePlay from '../assets/download/google-play.svg';
 
 function Header() {
   const [visible, setVisible] = React.useState(false);
@@ -38,7 +38,7 @@ function Header() {
           </svg>
         </button>
       </div>
-      <nav className={visible ? "headerMenu visible" : "headerMenu"}>
+      <nav className={visible ? 'headerMenu visible' : 'headerMenu'}>
         <div className="headerMenu__container container">
           <button className="headerMenu__button" onClick={toggleMenu}>
             <svg
@@ -61,7 +61,7 @@ function Header() {
             </svg>
           </button>
           <ul className="headerMenu__list">
-            {headerRoutes.map((route) => {
+            {routes.map((route) => {
               return (
                 <li key={route.id} className="headerMenu__item">
                   <NavLink

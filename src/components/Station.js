@@ -1,27 +1,12 @@
-import React from "react";
-import { getTime } from "../utilities";
+import React from 'react';
+import { getTime } from '../utilities';
 
-function Station({ active = null, onClick = (f) => f, wss = "" }) {
+function Station({ active = null, onClick = (f) => f, wss = '' }) {
   const [stationData, setStationData] = React.useState({
-    station: {
-      name: "",
-      shortcode: "",
-      description: "",
-      listen_url: "",
-    },
-    live: { is_live: false, streamer_name: "" },
+    station: {},
+    live: {},
     now_playing: {
-      elapsed: 0,
-      remaining: 0,
-      duration: 0,
-      song: {
-        text: "",
-        artist: "",
-        title: "",
-        album: "",
-        lyrics: "",
-        art: "",
-      },
+      song: {},
     },
   });
 
@@ -53,20 +38,20 @@ function Station({ active = null, onClick = (f) => f, wss = "" }) {
     <React.Fragment>
       <div
         onClick={onClick}
-        className={active ? "stationItem stationItem--current" : "stationItem"}
+        className={active ? 'stationItem stationItem--current' : 'stationItem'}
       >
         <div className="stationItem__container container">
           <figure className="stationItem__figure">
             <img
-              src={stationData.now_playing.song.art}
-              alt={stationData.station.shortcode}
+              src={stationData?.now_playing?.song.art}
+              alt={stationData?.station?.shortcode}
               className="stationItem__image"
             />
           </figure>
           <div className="stationItem__contains">
             <span className="stationItem__name">
-              {stationData.station.name}
-              {stationData.live.is_live && (
+              {stationData?.station?.name}
+              {stationData?.live?.is_live && (
                 <span className="status stationItem__status">live</span>
               )}
               <span
@@ -77,16 +62,16 @@ function Station({ active = null, onClick = (f) => f, wss = "" }) {
               </span>
             </span>
             <span className="stationItem__description">
-              {stationData.now_playing.song.title}
+              {stationData?.now_playing.song?.title}
             </span>
             {active && (
               <div className="timer stationItem__timer">
                 <span className="timer__count">
-                  {getTime(stationData.now_playing.elapsed)}
+                  {getTime(stationData?.now_playing?.elapsed)}
                 </span>
                 /
                 <span className="timer__count">
-                  {getTime(stationData.now_playing.duration)}
+                  {getTime(stationData?.now_playing?.duration)}
                 </span>
               </div>
             )}
@@ -96,11 +81,11 @@ function Station({ active = null, onClick = (f) => f, wss = "" }) {
       <div
         className={
           openPopup
-            ? "popup popup--visible stationDetail"
-            : "popup stationDetail"
+            ? 'popup popup--visible stationDetail'
+            : 'popup stationDetail'
         }
         style={{
-          backgroundImage: `url(${stationData.now_playing.song.art})`,
+          backgroundImage: `url(${stationData.now_playing?.song.art})`,
         }}
       >
         <div className="popup__content">
@@ -128,12 +113,12 @@ function Station({ active = null, onClick = (f) => f, wss = "" }) {
             </div>
             <figure className="stationDetail__figure">
               <img
-                src={stationData.now_playing.song.art}
-                alt={stationData.station.shortcode}
+                src={stationData.now_playing?.song.art}
+                alt={stationData.station?.shortcode}
               />
             </figure>
             <div className="stationDetail__description">
-              {stationData.now_playing.song.title}
+              {stationData.now_playing?.song?.title}
             </div>
           </div>
         </div>

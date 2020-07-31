@@ -1,8 +1,8 @@
-import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import { Header } from "./components/index";
-import { About, Main, Partners, Support } from "./pages/index";
+import { Header } from './components/index';
+import { routes } from './routes/';
 
 function App() {
   return (
@@ -10,10 +10,13 @@ function App() {
       <div className="content">
         <BrowserRouter>
           <Header />
-          <Route path="/v2/build/" component={Main}></Route>
-          <Route path="/v2/build/about/" exact component={About}></Route>
-          <Route path="/v2/build/partners/" exact component={Partners}></Route>
-          <Route path="/v2/build/support/" exact component={Support}></Route>
+          {routes.map((route) => (
+            <Route
+              key={route.id}
+              path={route.path}
+              component={route.component}
+            />
+          ))}
         </BrowserRouter>
       </div>
     </div>

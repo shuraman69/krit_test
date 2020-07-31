@@ -4,10 +4,10 @@ export const getTime = (seconds) => {
   let mm = date.getUTCMinutes();
   let ss = date.getSeconds();
 
-  if (mm < 10) mm = "0" + mm;
-  if (ss < 10) ss = "0" + ss;
+  if (mm < 10) mm = '0' + mm;
+  if (ss < 10) ss = '0' + ss;
 
-  const t = mm + ":" + ss;
+  const t = mm + ':' + ss;
 
   return t;
 };
