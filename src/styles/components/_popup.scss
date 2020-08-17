@@ -32,9 +32,10 @@
 .stationDetail {
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: auto;
   .popup__content {
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       right: 0;

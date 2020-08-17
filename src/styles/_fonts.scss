@@ -1,66 +1,66 @@
-$fontsPath: "./fonts";
+$fontsPath: './fonts';
 
 @font-face {
   font-family: Noto_Sans;
-  src: url("#{$fontsPath}/Noto_Sans/notosans.woff2") format("woff2"),
-    url("#{$fontsPath}/Noto_Sans/notosans.woff") format("woff");
+  src: url('#{$fontsPath}/Noto_Sans/notosans.woff2') format('woff2'),
+    url('#{$fontsPath}/Noto_Sans/notosans.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: Noto_Sans;
-  src: url("#{$fontsPath}/Noto_Sans/notosansitalic.woff2") format("woff2"),
-    url("#{$fontsPath}/Noto_Sans/notosansitalic.woff") format("woff");
+  src: url('#{$fontsPath}/Noto_Sans/notosansitalic.woff2') format('woff2'),
+    url('#{$fontsPath}/Noto_Sans/notosansitalic.woff') format('woff');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: Noto_Sans;
-  src: url("#{$fontsPath}/Noto_Sans/notosansmedium.woff2") format("woff2"),
-    url("#{$fontsPath}/Noto_Sans/notosansmedium.woff") format("woff");
+  src: url('#{$fontsPath}/Noto_Sans/notosansmedium.woff2') format('woff2'),
+    url('#{$fontsPath}/Noto_Sans/notosansmedium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: Noto_Sans;
-  src: url("#{$fontsPath}/Noto_Sans/notosansmediumitalic.woff2") format("woff2"),
-    url("#{$fontsPath}/Noto_Sans/notosansmediumitalic.woff") format("woff");
+  src: url('#{$fontsPath}/Noto_Sans/notosansmediumitalic.woff2') format('woff2'),
+    url('#{$fontsPath}/Noto_Sans/notosansmediumitalic.woff') format('woff');
   font-weight: 500;
   font-style: italic;
 }
 
 @font-face {
   font-family: Noto_Sans;
-  src: url("#{$fontsPath}/Noto_Sans/notosanssemibold.woff2") format("woff2"),
-    url("#{$fontsPath}/Noto_Sans/notosanssemibold.woff") format("woff");
+  src: url('#{$fontsPath}/Noto_Sans/notosanssemibold.woff2') format('woff2'),
+    url('#{$fontsPath}/Noto_Sans/notosanssemibold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: Noto_Sans;
-  src: url("#{$fontsPath}/Noto_Sans/notosanssemibolditalic.woff2")
-      format("woff2"),
-    url("#{$fontsPath}/Noto_Sans/notosanssemibolditalic.woff") format("woff");
+  src: url('#{$fontsPath}/Noto_Sans/notosanssemibolditalic.woff2')
+      format('woff2'),
+    url('#{$fontsPath}/Noto_Sans/notosanssemibolditalic.woff') format('woff');
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
   font-family: Noto_Sans;
-  src: url("#{$fontsPath}/Noto_Sans/notosansbold.woff2") format("woff2"),
-    url("#{$fontsPath}/Noto_Sans/notosansbold.woff") format("woff");
+  src: url('#{$fontsPath}/Noto_Sans/notosansbold.woff2') format('woff2'),
+    url('#{$fontsPath}/Noto_Sans/notosansbold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: Noto_Sans;
-  src: url("#{$fontsPath}/Noto_Sans/notosansbolditalic.woff2") format("woff2"),
-    url("#{$fontsPath}/Noto_Sans/notosansbolditalic.woff") format("woff");
+  src: url('#{$fontsPath}/Noto_Sans/notosansbolditalic.woff2') format('woff2'),
+    url('#{$fontsPath}/Noto_Sans/notosansbolditalic.woff') format('woff');
   font-weight: bold;
   font-style: italic;
 }

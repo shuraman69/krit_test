@@ -1,28 +1,28 @@
 // Fonts
-@import "fonts";
+@import 'fonts';
 
 // Helpers
-@import "helpers/vars";
-@import "helpers/functions";
-@import "helpers/mixins";
+@import 'helpers/vars';
+@import 'helpers/functions';
+@import 'helpers/mixins';
 
 // Common
-@import "common";
+@import 'common';
 
 // Elements
-@import "elements/ui";
-@import "elements/buttons";
+@import 'elements/ui';
+@import 'elements/buttons';
 
 // Components
-@import "components/controls";
-@import "components/currentItem";
-@import "components/popup";
+@import 'components/controls';
+@import 'components/currentItem';
+@import 'components/popup';
 
 // Layout
-@import "layout/header/header";
-@import "layout/header/menu";
-@import "layout/footer";
+@import 'layout/header/header';
+@import 'layout/header/menu';
+@import 'layout/footer';
 
 // Pages
-@import "pages/main";
-@import "pages/textPage";
+@import 'pages/main';
+@import 'pages/textPage';

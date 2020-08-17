@@ -33,7 +33,7 @@
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     display: table;
   }
 
@@ -57,7 +57,7 @@
   &::before,
   &::after {
     display: table;
-    content: " ";
+    content: ' ';
   }
 
   &::after {

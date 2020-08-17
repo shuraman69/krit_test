@@ -1,8 +1,8 @@
-$imagesPath: "../../assets";
+$imagesPath: '../../assets';
 
 body {
   background-color: $black;
-  background-image: url("#{$imagesPath}/main-background.svg");
+  background-image: url('#{$imagesPath}/main-background.svg');
   background-repeat: repeat;
 }
 
@@ -174,14 +174,14 @@ body {
       margin-bottom: 34px;
     }
     &::after {
-      content: "";
+      content: '';
       width: 41px;
       height: 41px;
       position: absolute;
       top: 0;
       bottom: 0;
       right: 0;
-      background-image: url("#{$imagesPath}/stations/station-active.svg");
+      background-image: url('#{$imagesPath}/stations/station-active.svg');
       background-repeat: no-repeat;
       background-size: cover;
       opacity: 0;
