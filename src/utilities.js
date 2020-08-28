@@ -7,7 +7,7 @@ export const getTime = (seconds) => {
   if (mm < 10) mm = '0' + mm;
   if (ss < 10) ss = '0' + ss;
 
-  const t = mm + ':' + ss;
+  const time = mm + ':' + ss;
 
-  return t;
+  return time;
 };

@@ -1,5 +1,12 @@
 const initialState = {
   current: null,
+  items: {
+    station: {},
+    live: {},
+    now_playing: {
+      song: {},
+    },
+  },
 };
 
 const station = (state = initialState, action) => {
@@ -8,6 +15,11 @@ const station = (state = initialState, action) => {
       return {
         ...state,
         current: action.payload,
+      };
+    case 'SET_STATIONS':
+      return {
+        ...state,
+        items: action.payload,
       };
     default:
       return state;
