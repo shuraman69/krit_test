@@ -1,22 +1,43 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { useLocation } from 'react-router-dom';
 import { Station, Media } from '../components';
-
+import { setStations, setCurrentStation } from '../redux/actions/stations';
 import { root } from '../routes/';
-import { stations } from '../data/stations';
-
-let a = new Audio();
 
 function Main() {
-  const [chosen, setChosen] = React.useState(null);
+  const dispatch = useDispatch();
+  const { items, loading, current } = useSelector(({ stations }) => stations);
   const location = useLocation().pathname;
 
-  //Когда здесь объявлено - в iphone работает.
-  //let a = new Audio();
-
   const selectStation = (item) => {
-    setChosen(item);
+    if (current === item.station.id) {
+      dispatch(setCurrentStation(null));
+    } else {
+      dispatch(setCurrentStation(item.station.id));
+    }
   };
+
+  React.useEffect(() => {
+    fetch('https://admin.scratch.radio/api/nowplaying')
+      .then((response) => response.json())
+      .then((data) => {
+        if (!loading) {
+          dispatch(setStations(data));
+        }
+      });
+  });
+
+  const arAudio = [
+    new Audio(),
+    new Audio(),
+    new Audio(),
+    new Audio(),
+    new Audio(),
+  ];
+
+  console.log(arAudio);
 
   return (
     <div
@@ -27,14 +48,20 @@ function Main() {
       }
     >
       <div className="stations">
-        {stations.map((station) => (
-          <React.Fragment key={station.id}>
+        {items.map((station) => (
+          <React.Fragment key={station.station.id}>
             <Station
               {...station}
-              active={station === chosen}
+              active={station.station.id === current}
               onClick={() => selectStation(station)}
             />
-            <Media src={station.src} active={station === chosen} audio={a} />
+            {
+              <Media
+                src={station.station.listen_url}
+                active={station.station.id === current}
+                a={arAudio[station.station.id - 9]}
+              />
+            }
           </React.Fragment>
         ))}
       </div>

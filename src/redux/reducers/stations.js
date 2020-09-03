@@ -1,12 +1,8 @@
 const initialState = {
+  loading: false,
   current: null,
-  items: {
-    station: {},
-    live: {},
-    now_playing: {
-      song: {},
-    },
-  },
+  items: [],
+  audioUrl: '',
 };
 
 const station = (state = initialState, action) => {
@@ -20,6 +16,7 @@ const station = (state = initialState, action) => {
       return {
         ...state,
         items: action.payload,
+        loading: true,
       };
     default:
       return state;

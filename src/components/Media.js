@@ -1,13 +1,14 @@
 import React from 'react';
 
-function Media({ src, active, audio }) {
-  // const audioRef = React.useRef();
-  // console.log(active);
+function Media({ src, active, a }) {
+  // const audio = new Audio();
+  a.src = src;
+
   React.useEffect(() => {
     if (active) {
-      audio.pause();
-      audio.src = src;
-      audio.play();
+      a.play();
+    } else {
+      a.pause();
     }
   });
 

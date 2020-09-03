@@ -1,34 +1,23 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
 import { getTime } from '../utilities';
-import { setStations } from '../redux/actions/stations';
 
-function Station({ active = null, onClick = (f) => f, wss = '' }) {
-  const dispatch = useDispatch();
-  const { items } = useSelector(({ stations }) => stations);
-
+function Station({
+  active = null,
+  onClick = (f) => f,
+  wss = '',
+  station,
+  now_playing,
+  live,
+}) {
   const [openPopup, setOpenPopup] = React.useState(false);
 
   const openMenu = (e) => {
     e.stopPropagation();
     setOpenPopup(!openPopup);
   };
-
-  React.useEffect(() => {
-    const ws = new WebSocket(`${wss}`);
-
-    console.log(wss);
-
-    ws.onmessage = (response) => {
-      const data = JSON.parse(response.data);
-      dispatch(setStations(data));
-    };
-
-    return function cleanup() {
-      ws.close();
-    };
-  }, [dispatch, wss]);
+  const ws =
+    'wss://admin.scratch.radio/api/live/nowplaying/' + station.shortcode;
 
   return (
     <React.Fragment>
@@ -39,15 +28,15 @@ function Station({ active = null, onClick = (f) => f, wss = '' }) {
         <div className="stationItem__container container">
           <figure className="stationItem__figure">
             <img
-              src={items?.now_playing?.song.art}
-              alt={items?.station?.shortcode}
+              src={now_playing?.song.art}
+              alt={now_playing?.song.text}
               className="stationItem__image"
             />
           </figure>
           <div className="stationItem__contains">
             <span className="stationItem__name">
-              {items?.station?.name}
-              {items?.live?.is_live && (
+              {station?.name}
+              {live.is_live && (
                 <span className="status stationItem__status">live</span>
               )}
               <span
@@ -58,16 +47,21 @@ function Station({ active = null, onClick = (f) => f, wss = '' }) {
               </span>
             </span>
             <span className="stationItem__description">
-              {items?.now_playing.song?.title}
+              {now_playing.song?.artist
+                ? now_playing.song?.title +
+                  ' (' +
+                  now_playing.song?.artist +
+                  ')'
+                : now_playing.song?.title}
             </span>
             {active && (
               <div className="timer stationItem__timer">
                 <span className="timer__count">
-                  {getTime(items?.now_playing?.elapsed)}
+                  {getTime(now_playing?.elapsed)}
                 </span>
                 /
                 <span className="timer__count">
-                  {getTime(items?.now_playing?.duration)}
+                  {getTime(now_playing?.duration)}
                 </span>
               </div>
             )}
@@ -81,7 +75,7 @@ function Station({ active = null, onClick = (f) => f, wss = '' }) {
             : 'popup stationDetail'
         }
         style={{
-          backgroundImage: `url(${items.now_playing?.song.art})`,
+          backgroundImage: `url(${now_playing?.song.art})`,
         }}
       >
         <div className="popup__content">
@@ -102,17 +96,19 @@ function Station({ active = null, onClick = (f) => f, wss = '' }) {
                   />
                 </svg>
               </button>
-              <span className="stationDetail__name">{items.station.name}</span>
+              <span className="stationDetail__name">{station?.name}</span>
               <div></div>
             </div>
             <figure className="stationDetail__figure">
-              <img
-                src={items.now_playing?.song.art}
-                alt={items.station?.shortcode}
-              />
+              <img src={now_playing?.song.art} alt={now_playing?.song.text} />
             </figure>
             <div className="stationDetail__description">
-              {items.now_playing?.song?.title}
+              {now_playing.song?.artist
+                ? now_playing.song?.title +
+                  ' (' +
+                  now_playing.song?.artist +
+                  ')'
+                : now_playing.song?.title}
             </div>
           </div>
         </div>
