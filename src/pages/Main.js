@@ -6,24 +6,27 @@ import { Station } from '../components';
 import { setStations, setCurrentStation } from '../redux/actions/stations';
 import { root } from '../routes/';
 
+const media = new Audio();
+
 function Main() {
   const dispatch = useDispatch();
   const { items, loading, current } = useSelector(({ stations }) => stations);
   const location = useLocation().pathname;
-  const mediaRef = React.useRef();
 
   const selectStation = (item) => {
     const id = item.station.id;
     const url = item.station.listen_url;
 
-    mediaRef.current.pause();
+    media.src = url;
+
+    media.load();
+    media.pause();
 
     if (current.id === id) {
       dispatch(setCurrentStation({ id: null, url: null }));
     } else {
       dispatch(setCurrentStation({ id, url }));
-      mediaRef.current.load();
-      mediaRef.current.play();
+      media.play();
     }
   };
 
@@ -43,12 +46,6 @@ function Main() {
           : 'hidden-block'
       }
     >
-      <audio ref={mediaRef}>
-        <source src={current.url} />
-        Your browser does not support the
-        <code>audio</code> element.
-      </audio>
-
       <div className="stations">
         {items.map((station) => (
           <React.Fragment key={station.station.id}>
