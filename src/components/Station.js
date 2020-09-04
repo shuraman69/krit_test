@@ -16,8 +16,8 @@ function Station({
     e.stopPropagation();
     setOpenPopup(!openPopup);
   };
-  const ws =
-    'wss://admin.scratch.radio/api/live/nowplaying/' + station.shortcode;
+  // const ws =
+  //   'wss://admin.scratch.radio/api/live/nowplaying/' + station.shortcode;
 
   return (
     <React.Fragment>

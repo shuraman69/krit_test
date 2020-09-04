@@ -33,7 +33,7 @@ body {
     color: #b5b5b5;
     border: 1px solid #b5b5b5;
     border-radius: 4px;
-    @include breakpoint(sm) {
+    @include hovering {
       &:hover {
         background-color: #b5b5b5;
         color: $black;
@@ -78,7 +78,7 @@ body {
     margin-left: 18px;
     margin-bottom: 18px;
   }
-  @include breakpoint(lg) {
+  @include hovering {
     &:hover {
       .stationItem {
         &__image {

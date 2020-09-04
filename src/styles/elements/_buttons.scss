@@ -1,7 +1,7 @@
 .button {
   border: none;
   background-color: transparent;
-  @include breakpoint(lg) {
+  @include hovering {
     &:hover {
       .button__text {
         color: $white;
@@ -17,12 +17,12 @@
     @include breakpoint(sm) {
       margin-top: 8px;
     }
-    @include breakpoint(lg) {
+    @include hovering {
       transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
     }
   }
   svg path {
-    @include breakpoint(lg) {
+    @include hovering {
       transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
     }
   }
@@ -76,7 +76,7 @@
 }
 
 .volumeButton {
-  @include breakpoint(lg) {
+  @include hovering {
     &:hover {
       svg path {
         fill: $white;
@@ -92,7 +92,7 @@
 }
 
 .sourceButton {
-  @include breakpoint(lg) {
+  @include hovering {
     &:hover {
       svg path {
         fill: $white;

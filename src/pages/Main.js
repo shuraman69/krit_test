@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { useLocation } from 'react-router-dom';
-import { Station, Media } from '../components';
+import { Station } from '../components';
 import { setStations, setCurrentStation } from '../redux/actions/stations';
 import { root } from '../routes/';
 
@@ -10,12 +10,20 @@ function Main() {
   const dispatch = useDispatch();
   const { items, loading, current } = useSelector(({ stations }) => stations);
   const location = useLocation().pathname;
+  const mediaRef = React.useRef();
 
   const selectStation = (item) => {
-    if (current === item.station.id) {
-      dispatch(setCurrentStation(null));
+    const id = item.station.id;
+    const url = item.station.listen_url;
+
+    mediaRef.current.pause();
+
+    if (current.id === id) {
+      dispatch(setCurrentStation({ id: null, url: null }));
     } else {
-      dispatch(setCurrentStation(item.station.id));
+      dispatch(setCurrentStation({ id, url }));
+      mediaRef.current.load();
+      mediaRef.current.play();
     }
   };
 
@@ -23,21 +31,9 @@ function Main() {
     fetch('https://admin.scratch.radio/api/nowplaying')
       .then((response) => response.json())
       .then((data) => {
-        if (!loading) {
-          dispatch(setStations(data));
-        }
+        if (!loading) dispatch(setStations(data));
       });
   });
-
-  const arAudio = [
-    new Audio(),
-    new Audio(),
-    new Audio(),
-    new Audio(),
-    new Audio(),
-  ];
-
-  console.log(arAudio);
 
   return (
     <div
@@ -47,21 +43,20 @@ function Main() {
           : 'hidden-block'
       }
     >
+      <audio ref={mediaRef}>
+        <source src={current.url} />
+        Your browser does not support the
+        <code>audio</code> element.
+      </audio>
+
       <div className="stations">
         {items.map((station) => (
           <React.Fragment key={station.station.id}>
             <Station
               {...station}
-              active={station.station.id === current}
+              active={station.station.id === current.id}
               onClick={() => selectStation(station)}
             />
-            {
-              <Media
-                src={station.station.listen_url}
-                active={station.station.id === current}
-                a={arAudio[station.station.id - 9]}
-              />
-            }
           </React.Fragment>
         ))}
       </div>

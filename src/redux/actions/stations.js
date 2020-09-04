@@ -3,7 +3,7 @@ export const setStations = (items) => ({
   payload: items,
 });
 
-export const setCurrentStation = (current) => ({
+export const setCurrentStation = ({ id, url }) => ({
   type: 'SET_CURRENT_STATION',
-  payload: current,
+  payload: { id, url },
 });
