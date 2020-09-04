@@ -1,11 +1,9 @@
 import React from 'react';
-
 import { getTime } from '../utilities';
 
 function Station({
   active = null,
   onClick = (f) => f,
-  wss = '',
   station,
   now_playing,
   live,
@@ -16,8 +14,8 @@ function Station({
     e.stopPropagation();
     setOpenPopup(!openPopup);
   };
-  // const ws =
-  //   'wss://admin.scratch.radio/api/live/nowplaying/' + station.shortcode;
+
+  React.useEffect(() => {});
 
   return (
     <React.Fragment>
@@ -54,7 +52,7 @@ function Station({
                   ')'
                 : now_playing.song?.title}
             </span>
-            {active && (
+            {true && (
               <div className="timer stationItem__timer">
                 <span className="timer__count">
                   {getTime(now_playing?.elapsed)}

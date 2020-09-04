@@ -3,35 +3,48 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { useLocation } from 'react-router-dom';
 import { Station } from '../components';
-import { setStations, setCurrentStation } from '../redux/actions/stations';
+import {
+  setStations,
+  setCurrentStation,
+  setStation,
+} from '../redux/actions/stations';
 import { root } from '../routes/';
-
-const media = new Audio();
+import { API_URL, API_WSS } from '../data/';
 
 function Main() {
   const dispatch = useDispatch();
   const { items, loading, current } = useSelector(({ stations }) => stations);
   const location = useLocation().pathname;
+  const mediaRef = React.useRef();
 
   const selectStation = (item) => {
     const id = item.station.id;
     const url = item.station.listen_url;
 
-    media.src = url;
-
-    media.load();
-    media.pause();
+    mediaRef.current.pause();
 
     if (current.id === id) {
       dispatch(setCurrentStation({ id: null, url: null }));
     } else {
       dispatch(setCurrentStation({ id, url }));
-      media.play();
+      mediaRef.current.load();
+      mediaRef.current.play();
     }
   };
 
+  items.map((item) => {
+    // const wss = API_WSS + item.station.shortcode;
+    // const ws = new WebSocket(wss);
+
+    // ws.onmessage = function (response) {
+    //   const data = JSON.parse(response.data);
+    //   dispatch(setStation(data.station.id, data));
+    // };
+    return false;
+  });
+
   React.useEffect(() => {
-    fetch('https://admin.scratch.radio/api/nowplaying')
+    fetch(API_URL)
       .then((response) => response.json())
       .then((data) => {
         if (!loading) dispatch(setStations(data));
@@ -46,6 +59,12 @@ function Main() {
           : 'hidden-block'
       }
     >
+      <audio ref={mediaRef}>
+        <source src={current.url} />
+        Your browser does not support the
+        <code>audio</code> element.
+      </audio>
+
       <div className="stations">
         {items.map((station) => (
           <React.Fragment key={station.station.id}>
