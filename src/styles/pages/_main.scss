@@ -212,7 +212,7 @@ body {
   &__timer {
     margin-top: 9px;
     @include breakpoint(sm) {
-      display: none;
+      // display: none;
     }
   }
   &__status {

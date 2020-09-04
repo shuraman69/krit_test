@@ -3,13 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { useLocation } from 'react-router-dom';
 import { Station } from '../components';
-import {
-  setStations,
-  setCurrentStation,
-  setStation,
-} from '../redux/actions/stations';
+import { setStations, setCurrentStation } from '../redux/actions/stations';
 import { root } from '../routes/';
-import { API_URL, API_WSS } from '../data/';
+import { API_URL } from '../data/';
 
 function Main() {
   const dispatch = useDispatch();
@@ -31,17 +27,6 @@ function Main() {
       mediaRef.current.play();
     }
   };
-
-  items.map((item) => {
-    // const wss = API_WSS + item.station.shortcode;
-    // const ws = new WebSocket(wss);
-
-    // ws.onmessage = function (response) {
-    //   const data = JSON.parse(response.data);
-    //   dispatch(setStation(data.station.id, data));
-    // };
-    return false;
-  });
 
   React.useEffect(() => {
     fetch(API_URL)

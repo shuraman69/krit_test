@@ -12,3 +12,8 @@ export const setStation = (id, item) => ({
   type: 'SET_STATION',
   payload: { id, item },
 });
+
+export const setTime = () => ({
+  type: 'SET_TIME',
+  payload: null,
+});
