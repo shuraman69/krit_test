@@ -57,6 +57,7 @@ body {
 }
 
 .stationItem {
+  position: relative;
   border-radius: 4px;
   background-color: #202020;
   padding-top: 24px;
@@ -123,7 +124,8 @@ body {
   &__name {
     color: $gray;
     line-height: 1.1;
-    display: block;
+    display: flex;
+    justify-content: space-between;
     transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
     white-space: nowrap;
     overflow: hidden;
@@ -222,6 +224,13 @@ body {
       top: 33px;
       right: 33px;
     }
+    &.status--more {
+      display: none;
+      width: max-content;
+      .stationItem--current & {
+        display: flex;
+      }
+    }
   }
   &--current {
     background: linear-gradient(
@@ -291,7 +300,7 @@ body {
       }
     }
     &__contains {
-      width: calc(100% - 56px);
+      width: calc(100% - 30px);
       @include breakpoint(sm) {
         width: 100%;
       }

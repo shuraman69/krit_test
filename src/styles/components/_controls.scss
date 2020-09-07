@@ -58,8 +58,6 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    &--play {
-    }
     &--volume {
       @include breakpoint(sm) {
         order: 1;

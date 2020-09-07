@@ -1,6 +1,6 @@
-import { API_WSS } from '../../data/';
+import { API_WSS, CONNECT_ERROR } from '../../data/';
 import store from '../store';
-import { setStation, setTime } from '../actions/stations';
+import { setStation, setTime, setError } from '../actions/stations';
 
 const initialState = {
   loading: false,
@@ -11,19 +11,41 @@ const initialState = {
   },
   items: [],
   wss: [],
+  errorMessage: false,
 };
 
 const station = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_STATIONS':
       const wssObj = action.payload.map((item) => {
-        const ws = new WebSocket(API_WSS + item.station.shortcode);
+        function connect() {
+          const ws = new WebSocket(API_WSS + item.station.shortcode);
 
-        ws.onmessage = function (response) {
-          const data = JSON.parse(response.data);
-          store.dispatch(setStation(data.station.id, data));
-        };
-        return ws;
+          ws.onopen = function (e) {
+            store.dispatch(setError(false));
+          };
+          ws.onmessage = function (response) {
+            const data = JSON.parse(response.data);
+
+            store.dispatch(setStation(data.station.id, data));
+          };
+
+          ws.onerror = function (error) {
+            store.dispatch(setError(CONNECT_ERROR));
+            ws.close();
+          };
+
+          ws.onclose = function (event) {
+            if (!event.wasClean) {
+              store.dispatch(setError(CONNECT_ERROR));
+            }
+            setTimeout(connect, 5000);
+          };
+
+          return ws;
+        }
+
+        return connect();
       });
 
       setInterval(() => {
@@ -52,19 +74,34 @@ const station = (state = initialState, action) => {
       return {
         ...state,
         items: newStateItems,
+        errorMessage: '',
       };
     case 'SET_TIME':
       const stationTimer = state.items;
 
-      stationTimer.map((item) => {
-        item.now_playing.remaining--;
-        item.now_playing.elapsed++;
-        return false;
-      });
+      if (!state.errorMessage) {
+        stationTimer.map((item) => {
+          item.now_playing.remaining--;
+          item.now_playing.elapsed++;
+
+          return false;
+        });
+      }
 
       return {
         ...state,
         items: stationTimer,
+      };
+    case 'SET_ERROR':
+      return {
+        ...state,
+        errorMessage: action.payload,
+        // loading: false,
+      };
+    case 'SET_LOADING':
+      return {
+        ...state,
+        loading: false,
       };
     default:
       return state;

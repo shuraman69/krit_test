@@ -3,13 +3,19 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { useLocation } from 'react-router-dom';
 import { Station } from '../components';
-import { setStations, setCurrentStation } from '../redux/actions/stations';
+import {
+  setStations,
+  setCurrentStation,
+  setError,
+} from '../redux/actions/stations';
 import { root } from '../routes/';
-import { API_URL } from '../data/';
+import { API_URL, CONNECT_ERROR } from '../data/';
 
 function Main() {
   const dispatch = useDispatch();
-  const { items, loading, current } = useSelector(({ stations }) => stations);
+  const { items, loading, current, errorMessage } = useSelector(
+    ({ stations }) => stations
+  );
   const location = useLocation().pathname;
   const mediaRef = React.useRef();
 
@@ -29,39 +35,48 @@ function Main() {
   };
 
   React.useEffect(() => {
-    fetch(API_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        if (!loading) dispatch(setStations(data));
-      });
+    if (!loading) {
+      fetch(API_URL)
+        .then((response) => response.json())
+        .then((data) => {
+          dispatch(setStations(data));
+        })
+        .catch((error) => dispatch(setError(CONNECT_ERROR)));
+    }
   });
 
   return (
-    <div
-      className={
-        location === `${root}`
-          ? 'container container--offset_top container--offset_left container--offset_bottom'
-          : 'hidden-block'
-      }
-    >
-      <audio ref={mediaRef}>
-        <source src={current.url} />
-        Your browser does not support the
-        <code>audio</code> element.
-      </audio>
+    <>
+      {errorMessage && (
+        <div className="alert">
+          <span className="alert__description">{errorMessage}</span>
+        </div>
+      )}
+      <div
+        className={
+          location === `${root}`
+            ? 'container container--offset_top container--offset_left container--offset_bottom'
+            : 'hidden-block'
+        }
+      >
+        <audio ref={mediaRef}>
+          <source src={current.url} />
+          Your browser does not support the
+          <code>audio</code> element.
+        </audio>
 
-      <div className="stations">
-        {items.map((station) => (
-          <React.Fragment key={station.station.id}>
+        <div className="stations">
+          {items.map((station) => (
             <Station
+              key={station.station.id}
               {...station}
               active={station.station.id === current.id}
               onClick={() => selectStation(station)}
             />
-          </React.Fragment>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

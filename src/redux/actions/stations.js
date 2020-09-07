@@ -17,3 +17,13 @@ export const setTime = () => ({
   type: 'SET_TIME',
   payload: null,
 });
+
+export const setError = (message) => ({
+  type: 'SET_ERROR',
+  payload: message,
+});
+
+export const setLoading = (status) => ({
+  type: 'SET_LOADING',
+  payload: status,
+});

@@ -41,7 +41,7 @@ function Station({
                 className="status status--more stationItem__status"
                 onClick={(e) => openMenu(e)}
               >
-                show more
+                info
               </span>
             </span>
             <span className="stationItem__description">
