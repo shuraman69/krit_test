@@ -68,19 +68,19 @@ function Station({
       </div>
       <div
         className={
-          openPopup
-            ? 'popup popup--visible stationDetail'
-            : 'popup stationDetail'
+          openPopup ? 'popup visible stationDetail' : 'popup stationDetail'
         }
-        style={{
-          backgroundImage: `url(${now_playing?.song.art})`,
-        }}
       >
         <div className="popup__content">
-          <div className="popup__container">
+          <div className="popup__container container">
             <div className="popup__header">
-              <button type="button" className="backButton" onClick={openMenu}>
+              <button
+                type="button"
+                className="backButton popup__close"
+                onClick={openMenu}
+              >
                 <svg
+                  className="backButton__icon"
                   width={12}
                   height={23}
                   viewBox="0 0 12 23"
@@ -94,11 +94,14 @@ function Station({
                   />
                 </svg>
               </button>
-              <span className="stationDetail__name">{station?.name}</span>
-              <div></div>
+              <div className="popup__title">{station?.name}</div>
             </div>
             <figure className="stationDetail__figure">
-              <img src={now_playing?.song.art} alt={now_playing?.song.text} />
+              <img
+                src={now_playing?.song.art}
+                alt={now_playing?.song.text}
+                className="stationDetail__image"
+              />
             </figure>
             <div className="stationDetail__description">
               {now_playing.song?.artist

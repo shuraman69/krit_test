@@ -19,7 +19,7 @@ function Header() {
   };
 
   return (
-    <header className="header">
+    <header className={visible ? 'header hidden' : 'header'}>
       <div className="header__container container">
         <figure className="header__logo logo">
           <Logo />

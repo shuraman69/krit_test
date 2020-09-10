@@ -29,6 +29,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.4;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 ul[class],
 ol[class] {

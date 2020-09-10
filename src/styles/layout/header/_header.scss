@@ -46,6 +46,11 @@
     background-color: transparent;
     width: 32px;
     height: 29px;
+    transform: scale(1);
+    transition: all 0.8s cubic-bezier(0.42, 0, 0.02, 1.05);
+    .hidden & {
+      transform: scale(0);
+    }
     @include breakpoint(sm) {
       width: 42px;
       height: 42px;
