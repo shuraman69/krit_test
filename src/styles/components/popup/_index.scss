@@ -14,6 +14,17 @@ $imagesPath: '../../../assets';
   background-color: #161616;
   background-image: url('#{$imagesPath}/main-background.svg');
   background-repeat: repeat;
+  &.popup-enter {
+    opacity: 0;
+  }
+  &.popup-enter-active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  &.popup-enter-done {
+    opacity: 1;
+    pointer-events: all;
+  }
   &.visible {
     opacity: 1;
     pointer-events: all;
@@ -51,13 +62,21 @@ $imagesPath: '../../../assets';
     }
   }
   &__close {
-    transform: scale(0);
     transition: all 0.8s cubic-bezier(0.42, 0, 0.02, 1.05);
     position: absolute;
     left: 0;
     z-index: 1;
-    .visible & {
+    .popup-enter & {
+      transform: scale(0);
+    }
+    .popup-enter-active & {
       transform: scale(1);
+    }
+    .popup-enter-done & {
+      transform: scale(1);
+    }
+    .popup-exit-active & {
+      transform: scale(0);
     }
   }
 }

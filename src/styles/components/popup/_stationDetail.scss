@@ -20,10 +20,18 @@
   &__image {
     width: 100%;
     object-fit: cover;
-    transform: scale(0);
     transition: all 0.8s cubic-bezier(0.42, 0, 0.02, 1.05);
-    .visible & {
+    .popup-enter & {
+      transform: scale(0);
+    }
+    .popup-enter-active & {
       transform: scale(1);
+    }
+    .popup-enter-done & {
+      transform: scale(1);
+    }
+    .popup-exit-active & {
+      transform: scale(0);
     }
   }
   &__description {

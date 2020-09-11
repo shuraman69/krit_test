@@ -1,7 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
-import { routes } from '../routes';
+import { routes, root } from '../routes';
 import { Logo } from '../elements';
 
 import appStore from '../assets/download/app-store.svg';
@@ -21,9 +21,9 @@ function Header() {
   return (
     <header className={visible ? 'header hidden' : 'header'}>
       <div className="header__container container">
-        <figure className="header__logo logo">
+        <Link to={root} className="header__logo logo">
           <Logo />
-        </figure>
+        </Link>
         <button type="button" className="header__button" onClick={toggleMenu}>
           <svg
             width={20}
@@ -110,9 +110,9 @@ function Header() {
                   </a>
                 </div>
               </div>
-              <figure className="headerMenu__logo logo logo--gray">
+              <Link to={root} className="headerMenu__logo logo logo--gray">
                 <Logo />
-              </figure>
+              </Link>
             </div>
           </div>
         </div>
