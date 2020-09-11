@@ -9,16 +9,17 @@
 @import 'common';
 
 // Elements
-@import 'elements/ui';
-@import 'elements/buttons';
+@import 'elements/main';
 
 // Components
 @import 'components/controls';
 @import 'components/currentItem';
-@import 'components/popup';
+@import 'components/popup/main';
+@import 'components/stationItem';
+@import 'components/alert';
 
 // Layout
-@import 'layout/header/header';
+@import 'layout/header/main';
 @import 'layout/header/menu';
 @import 'layout/footer';
 

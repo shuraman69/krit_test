@@ -55,7 +55,7 @@ function Main() {
       <div
         className={
           location === `${root}`
-            ? 'container container--offset_top container--offset_left container--offset_bottom'
+            ? 'container container--offset_top container--offset_left'
             : 'hidden-block'
         }
       >

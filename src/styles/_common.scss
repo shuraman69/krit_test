@@ -24,11 +24,19 @@ dl,
 dd {
   margin: 0;
 }
+
+$imagesPath: '../assets';
+
 body {
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
+  color: $gray;
   line-height: 1.4;
+  background-color: $black;
+  background-image: url('#{$imagesPath}/main-background.svg');
+  background-repeat: repeat;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 ul[class],
 ol[class] {
