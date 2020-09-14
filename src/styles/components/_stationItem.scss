@@ -183,6 +183,7 @@ $imagesPath: '../../assets';
       display: none;
       width: max-content;
       position: absolute;
+      top: 25px;
       right: 15px;
       @include breakpoint(sm) {
         right: 33px;
