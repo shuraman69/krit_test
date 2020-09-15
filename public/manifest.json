@@ -3,7 +3,7 @@
   "categories": [
     "music"
   ],
-  "description": "This project is designed to make cool music more accessible.",
+  "description": "This project is designed to make scratch music more accessible.",
   "display": "standalone",
   "icons": [{
     "src": "ico/ico-48.png",
