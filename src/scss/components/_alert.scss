@@ -1,0 +1,14 @@
+.alert {
+  padding: 16px;
+  background-color: $gold;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  &__description {
+    display: block;
+    text-align: center;
+    color: $black;
+  }
+}

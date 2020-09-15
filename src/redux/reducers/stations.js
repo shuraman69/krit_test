@@ -64,9 +64,7 @@ const station = (state = initialState, action) => {
         current: action.payload,
       };
     case 'SET_STATION':
-      const index = state.items.findIndex(
-        (item) => item.station.id === action.payload.id
-      );
+      const index = state.items.findIndex((item) => item.station.id === action.payload.id);
       const newStateItems = state.items;
 
       newStateItems[index] = action.payload.item;

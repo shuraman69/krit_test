@@ -1,0 +1,14 @@
+.text-page {
+  &__item {
+    margin-bottom: 33px;
+    @include breakpoint(sm) {
+      margin-bottom: 37px;
+    }
+    @include breakpoint(md) {
+      margin-bottom: 61px;
+    }
+  }
+  &__contains {
+    padding-left: 23px;
+  }
+}

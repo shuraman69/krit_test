@@ -1,0 +1,78 @@
+.controls {
+  position: fixed;
+  height: 59px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: radial-gradient(57.5% 1691.47% at 50% 65.25%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%),
+    #202020;
+  box-shadow: 0px -25px 8px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  @include breakpoint(sm) {
+    height: 98px;
+  }
+  @include breakpoint(lg) {
+    left: 253px;
+    background-color: #202020;
+  }
+  @include breakpoint(xl) {
+    left: 379px;
+    height: 119px;
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 290px;
+    height: 100%;
+    @include breakpoint(sm) {
+      max-width: 1410px;
+      justify-content: flex-start;
+    }
+    @include breakpoint(lg) {
+      padding-left: 67px;
+    }
+    @include breakpoint(xl) {
+      padding-left: 110px;
+    }
+  }
+  &__inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    @include breakpoint(sm) {
+      width: 54%;
+    }
+  }
+  &__item {
+    @include breakpoint(sm) {
+      flex-grow: 2;
+    }
+  }
+  &__button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    &--volume {
+      @include breakpoint(sm) {
+        order: 1;
+        width: 86px;
+      }
+    }
+    &--source {
+      @include breakpoint(sm) {
+        order: 2;
+        width: 86px;
+      }
+    }
+  }
+  &__current-item {
+    display: none;
+    @include breakpoint(sm) {
+      display: flex;
+      width: 46%;
+      padding-right: 15px;
+    }
+  }
+}
