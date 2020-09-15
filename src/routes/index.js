@@ -6,7 +6,7 @@ export const routes = [
   {
     id: 1,
     path: `${root}`,
-    name: 'Main',
+    name: '',
     exact: false,
     Сomponent: Main,
     title: 'Scratch.Radio',

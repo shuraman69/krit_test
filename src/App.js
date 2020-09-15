@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import { Header } from './components/index';
+import { Header } from './components/';
 import { routes } from './routes/';
 
 function App() {
