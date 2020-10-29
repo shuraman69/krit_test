@@ -3,13 +3,19 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { useLocation } from 'react-router-dom';
 import { Station, LoadingBlock } from '../components/';
-import { setStations, setCurrentStation, setError } from '../redux/actions/stations';
+import {
+  setStations,
+  setCurrentStation,
+  setError,
+} from '../redux/actions/stations';
 import { root } from '../routes';
 import { API_URL, CONNECT_ERROR } from '../data';
 
 function Main() {
   const dispatch = useDispatch();
-  const { items, loading, current, errorMessage } = useSelector(({ stations }) => stations);
+  const { items, loading, current, errorMessage } = useSelector(
+    ({ stations }) => stations
+  );
   const location = useLocation().pathname;
   const mediaRef = React.useRef();
 
@@ -46,13 +52,7 @@ function Main() {
           <span className="alert__description">{errorMessage}</span>
         </div>
       )}
-      <div
-        className={
-          location === `${root}`
-            ? 'container container--offset_top container--offset_left'
-            : 'hidden-block'
-        }
-      >
+      <div className={'container container--offset_top container--offset_left'}>
         <audio ref={mediaRef}>
           <source src={current.url} />
           Your browser does not support the

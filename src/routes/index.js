@@ -1,6 +1,6 @@
 import { About, Main, Partners, Support } from '../pages/';
 
-export const root = '/v2/build/';
+export const root = '/';
 
 export const routes = [
   {
@@ -11,7 +11,8 @@ export const routes = [
     Сomponent: Main,
     title: 'Scratch.Radio',
     keywords: 'This project is designed to make scratch music more accessible.',
-    description: 'This project is designed to make scratch music more accessible.',
+    description:
+      'This project is designed to make scratch music more accessible.',
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ export const routes = [
     Сomponent: About,
     title: 'About Scratch.Radio',
     keywords: 'about scratch.radio, privacy statement',
-    description: 'The authors of the project do not approve or call for anything, nor do they oppose or support it.',
+    description:
+      'The authors of the project do not approve or call for anything, nor do they oppose or support it.',
   },
   {
     id: 3,

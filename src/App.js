@@ -1,15 +1,17 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { Provider } from 'react-redux';
 
 import { Header } from './components/';
 import { routes } from './routes/';
+import store from './redux/store';
 
 function App() {
   return (
     <div className="main-wrapper">
       <div className="content">
-        <BrowserRouter>
+        <Provider store={store}>
           <Header />
           {routes.map((route) => (
             <Route key={route.id} path={route.path}>
@@ -21,7 +23,7 @@ function App() {
               <route.Сomponent />
             </Route>
           ))}
-        </BrowserRouter>
+        </Provider>
       </div>
     </div>
   );
