@@ -1,19 +1,23 @@
 .link {
-  text-decoration: none;
   color: $gray-light;
+  text-decoration: none;
   @include hovering {
     transition: color 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
+
     &:hover {
       color: $white;
     }
   }
+
   &--theme {
     &_gold {
       color: $gold;
     }
+
     &_gray {
       color: $gray;
     }
+
     &_dark {
       color: $gray-dark;
     }

@@ -11,14 +11,13 @@ import { routes } from '../src/routes';
 import App from '../src/App.js';
 
 const app = express();
-const PORT = 8050;
+const PORT = 8010;
 
 // gzip compression
 app.use(compression());
 
 routes.forEach((route) => {
   app.all(`^${route.path}$`, (req, res, next) => {
-    console.log(res);
     fs.readFile(path.resolve('./build/index.html'), 'utf-8', (err, data) => {
       const context = {};
 

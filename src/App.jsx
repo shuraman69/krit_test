@@ -3,8 +3,8 @@ import { Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
 
-import { Header } from './components/';
-import { routes } from './routes/';
+import { Header } from './components';
+import { routes } from './routes';
 import store from './redux/store';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <Provider store={store}>
           <Header />
           {routes.map((route) => (
-            <Route key={route.id} path={route.path}>
+            <Route key={route.id} path={route.path} exact>
               <Helmet>
                 <meta name="keywords" content={route.keywords} />
                 <meta name="description" content={route.description} />

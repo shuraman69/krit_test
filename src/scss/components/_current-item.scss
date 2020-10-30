@@ -2,45 +2,49 @@
   &__figure {
     @include breakpoint(sm) {
       display: flex;
-      width: 56px;
       height: 57px;
+      width: 56px;
     }
   }
+
   &__contains {
     @include breakpoint(sm) {
-      width: calc(100% - 56px);
       padding-left: 24px;
+      width: calc(100% - 56px);
     }
     @include breakpoint(md) {
       padding-left: 31px;
     }
   }
+
   &__name {
     @include breakpoint(sm) {
-      display: block;
-      margin-bottom: 4px;
       color: $gold;
+      display: block;
       font-size: 14px;
-      white-space: nowrap;
+      margin-bottom: 4px;
       overflow: hidden;
       text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
+
   &__description {
     @include breakpoint(sm) {
-      display: block;
-      margin-bottom: 8px;
       color: $white;
+      display: block;
       font-size: 12px;
-      white-space: nowrap;
+      margin-bottom: 8px;
       overflow: hidden;
       text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
+
   &__timer {
     @include breakpoint(sm) {
-      display: block;
       color: $white;
+      display: block;
       font-size: 10px;
     }
   }

@@ -1,4 +1,6 @@
-import { About, Main, Partners, Support } from '../pages/';
+import {
+  About, Main, Partners, Support,
+} from '../pages';
 
 export const root = '/';
 
@@ -7,7 +9,7 @@ export const routes = [
     id: 1,
     path: `${root}`,
     name: '',
-    exact: false,
+    exact: true,
     Сomponent: Main,
     title: 'Scratch.Radio',
     keywords: 'This project is designed to make scratch music more accessible.',

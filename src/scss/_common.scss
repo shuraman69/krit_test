@@ -4,10 +4,12 @@
   box-sizing: border-box;
   outline: none;
 }
+
 ul,
 ol {
   padding: 0;
 }
+
 body,
 h1,
 h2,
@@ -28,59 +30,60 @@ dd {
 $imagesPath: '../assets';
 
 body {
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-  color: $gray;
-  line-height: 1.4;
   background-color: $black;
   background-image: url('#{$imagesPath}/main-background.svg');
   background-repeat: repeat;
+  color: $gray;
+  line-height: 1.4;
+  min-height: 100vh;
+  scroll-behavior: smooth;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-rendering: optimizeSpeed;
 }
-ul[class],
-ol[class] {
-  list-style: none;
-}
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
+
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
+
 article > * + * {
   margin-top: 1em;
 }
+
 input,
 button,
 textarea,
 select {
-  font: inherit;
   border-radius: 0;
+  font: inherit;
 }
+
 button {
   padding-left: 5px;
   padding-right: 5px;
 }
+
 a {
   text-decoration: none;
+
   &:focus {
     outline: none;
   }
 }
+
 input::-ms-clear {
   display: none;
 }
 @keyframes autofill {
   to {
-    color: inherit;
     background: transparent;
+    color: inherit;
   }
 }
+
 input:-webkit-autofill {
-  -webkit-animation-name: autofill;
-  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-name: autofill;
 }
 
 @media print {
@@ -112,14 +115,15 @@ html {
 }
 
 body {
-  height: 100%;
   font-family: $primary;
   font-size: $defaultSize;
+  height: 100%;
 }
 
 .hidden-overflow {
-  position: relative;
   overflow: hidden;
+  position: relative;
+
   &.bx-no-touch {
     padding-right: 16px;
   }
@@ -132,9 +136,11 @@ body {
   min-height: 100%;
   position: relative;
 }
+
 .content {
   flex: 1 0 auto;
 }
+
 .footer {
   flex: 0 0 auto;
 }
@@ -143,16 +149,17 @@ html,
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
+
   ::-webkit-scrollbar {
-    width: 0px;
     background: transparent;
+    width: 0;
   }
 }
 
 .container {
+  margin: 0 auto;
   max-width: 1410px;
   width: calc(100% - 30px);
-  margin: 0 auto;
   @include breakpoint(sm) {
     width: calc(100% - 90px);
   }
@@ -162,6 +169,7 @@ body {
   @include breakpoint(xl) {
     width: calc(100% - 116px);
   }
+
   &--offset {
     &_top {
       margin-top: 25px;
@@ -178,6 +186,7 @@ body {
         margin-top: 66px;
       }
     }
+
     &_left {
       @include breakpoint(lg) {
         padding-left: 319px;
@@ -186,6 +195,7 @@ body {
         padding-left: 298px;
       }
     }
+
     &_bottom {
       padding-bottom: 59px;
       @include breakpoint(sm) {

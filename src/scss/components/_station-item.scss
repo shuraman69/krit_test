@@ -4,34 +4,35 @@ $imagesPath: '../../assets';
   0% {
     transform: rotate(0);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
 
 .station-item {
-  min-height: 110px;
-  position: relative;
-  border-radius: 4px;
   background-color: #202020;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  margin-bottom: 10px;
-  transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
+  border-radius: 4px;
   cursor: pointer;
+  margin-bottom: 10px;
+  min-height: 110px;
+  padding-bottom: 24px;
+  padding-top: 24px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
   user-select: none;
   @include breakpoint(sm) {
-    width: calc(50% - 22px);
-    position: relative;
-    margin-left: 22px;
     margin-bottom: 22px;
-    padding-top: 33px;
+    margin-left: 22px;
     padding-bottom: 33px;
+    padding-top: 33px;
+    position: relative;
+    width: calc(50% - 22px);
   }
   @include breakpoint(md) {
-    width: calc(33.333% - 18px);
-    margin-left: 18px;
     margin-bottom: 18px;
+    margin-left: 18px;
+    width: calc(33.333% - 18px);
   }
   @include hovering {
     &:hover {
@@ -39,9 +40,11 @@ $imagesPath: '../../assets';
         &__image {
           filter: grayscale(0);
         }
+
         &__name {
           color: $gold;
         }
+
         &__description {
           color: $white;
         }
@@ -49,12 +52,13 @@ $imagesPath: '../../assets';
     }
   }
   @include breakpoint(xl) {
-    width: calc(33.333% - 23px);
-    margin-left: 23px;
     margin-bottom: 23px;
-    padding-top: 44px;
+    margin-left: 23px;
     padding-bottom: 44px;
+    padding-top: 44px;
+    width: calc(33.333% - 23px);
   }
+
   &__container {
     display: flex;
     @include breakpoint(sm) {
@@ -67,26 +71,28 @@ $imagesPath: '../../assets';
       width: calc(100% - 86px);
     }
   }
+
   &__contains {
-    width: calc(100% - 41px);
     padding-left: 40px;
     padding-right: 15px;
+    width: calc(100% - 41px);
     @include breakpoint(sm) {
-      width: 100%;
       padding-left: 0;
       padding-right: 0;
+      width: 100%;
     }
   }
+
   &__name {
     color: $gray;
     display: flex;
-    margin-bottom: 10px;
-    line-height: 1.1;
     justify-content: space-between;
-    transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
-    white-space: nowrap;
+    line-height: 1.1;
+    margin-bottom: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
+    transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
+    white-space: nowrap;
     @include breakpoint(sm) {
       font-size: 25px;
       margin-bottom: 5px;
@@ -96,15 +102,16 @@ $imagesPath: '../../assets';
       margin-bottom: 12px;
     }
   }
+
   &__description {
-    display: block;
-    max-width: 100%;
-    font-size: 10px;
     color: $gray-dark;
-    white-space: nowrap;
+    display: block;
+    font-size: 10px;
+    max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
+    white-space: nowrap;
     @include breakpoint(sm) {
       font-size: 15px;
     }
@@ -112,161 +119,173 @@ $imagesPath: '../../assets';
       font-size: 12px;
     }
   }
+
   &__figure {
-    position: relative;
-    width: 41px;
     height: 41px;
+    position: relative;
     transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
+    width: 41px;
     @include breakpoint(sm) {
-      width: 155px;
       height: 155px;
       margin-bottom: 34px;
+      width: 155px;
     }
     @include breakpoint(md) {
-      width: 134px;
       height: 134px;
       margin-bottom: 20px;
+      width: 134px;
     }
     @include breakpoint(xl) {
-      width: 181px;
       height: 181px;
       margin-bottom: 34px;
+      width: 181px;
     }
+
     &::after {
-      content: '';
-      width: 41px;
-      height: 41px;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
+      animation: full-rotate 5s linear infinite;
       background-image: url('#{$imagesPath}/stations/station-active.svg');
       background-repeat: no-repeat;
       background-size: cover;
+      bottom: 0;
+      content: '';
+      height: 41px;
       opacity: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
       transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
-      animation: full-rotate 5s linear infinite;
+      width: 41px;
       @include breakpoint(sm) {
-        width: 155px;
         height: 155px;
+        width: 155px;
       }
       @include breakpoint(md) {
-        width: 134px;
         height: 134px;
+        width: 134px;
       }
       @include breakpoint(xl) {
-        width: 181px;
         height: 181px;
+        width: 181px;
       }
     }
   }
+
   &__image {
-    position: relative;
-    z-index: 1;
-    width: 100%;
+    filter: grayscale(1);
     height: 100%;
     object-fit: cover;
-    filter: grayscale(1);
+    position: relative;
     transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
+    width: 100%;
+    z-index: 1;
   }
+
   &__timer {
     margin-top: 9px;
     @include breakpoint(sm) {
       // display: none;
     }
   }
+
   &__status {
     margin-left: 12px;
     @include breakpoint(sm) {
       position: absolute;
-      top: 33px;
       right: 33px;
+      top: 33px;
     }
+
     &.status--more {
       display: none;
-      width: max-content;
       position: absolute;
-      top: 25px;
       right: 15px;
+      top: 25px;
+      width: max-content;
       @include breakpoint(sm) {
         right: 33px;
       }
+
       .station-item--current & {
         display: flex;
       }
     }
   }
+
   &--current {
-    background: linear-gradient(
-        100.88deg,
-        rgba(156, 156, 156, 0.37) -3.1%,
-        rgba(20, 20, 20, 0.37) 50.26%
-      ),
+    background: linear-gradient(100.88deg,
+    rgba(156, 156, 156, 0.37) -3.1%,
+    rgba(20, 20, 20, 0.37) 50.26%),
       rgba(45, 45, 45, 0.37);
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     margin-left: 20px;
     @include breakpoint(sm) {
-      width: calc(50% - 50px);
       margin-left: 50px;
+      width: calc(50% - 50px);
     }
     @include breakpoint(md) {
-      width: calc(33.333% - 50px);
       margin-left: 50px;
+      width: calc(33.333% - 50px);
     }
     @include breakpoint(xl) {
-      width: calc(33.333% - 70px);
       margin-left: 70px;
+      width: calc(33.333% - 70px);
     }
   }
+
   &--current & {
     &__name {
       color: $gold;
     }
+
     &__description {
       color: $white;
     }
+
     &__figure {
-      width: 56px;
       height: 56px;
       margin-left: -35px;
+      width: 56px;
       @include breakpoint(sm) {
-        width: 155px;
         height: 155px;
         margin-left: -72px;
+        width: 155px;
         @include breakpoint(md) {
-          width: 134px;
           height: 134px;
+          width: 134px;
         }
         @include breakpoint(xl) {
-          width: 181px;
           height: 181px;
           margin-left: -91px;
+          width: 181px;
         }
       }
+
       &::after {
+        height: 56px;
         opacity: 1;
         right: -50%;
         width: 56px;
-        height: 56px;
         @include breakpoint(sm) {
-          width: 155px;
           height: 155px;
+          width: 155px;
         }
         @include breakpoint(md) {
-          width: 134px;
           height: 134px;
+          width: 134px;
         }
         @include breakpoint(xl) {
-          width: 181px;
           height: 181px;
+          width: 181px;
         }
       }
     }
+
     &__contains {
       @include breakpoint(sm) {
         width: 100%;
       }
     }
+
     &__image {
       filter: grayscale(0);
     }

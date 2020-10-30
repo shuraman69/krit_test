@@ -2,10 +2,10 @@ import React from 'react';
 
 function Partners() {
   return (
-    <div className="container container--offset_top container--offset_left container--offset_bottom text-page">
-      <span className="title">Partners</span>
+    <section className="container container--offset_top container--offset_left container--offset_bottom text-page">
+      <h1 className="title">Partners</h1>
       <p className="text">This page in development.</p>
-    </div>
+    </section>
   );
 }
 

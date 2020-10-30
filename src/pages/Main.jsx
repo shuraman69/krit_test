@@ -1,14 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { useLocation } from 'react-router-dom';
 import { Station, LoadingBlock } from '../components/';
 import {
   setStations,
   setCurrentStation,
   setError,
 } from '../redux/actions/stations';
-import { root } from '../routes';
 import { API_URL, CONNECT_ERROR } from '../data';
 
 function Main() {
@@ -16,21 +14,15 @@ function Main() {
   const { items, loading, current, errorMessage } = useSelector(
     ({ stations }) => stations
   );
-  const location = useLocation().pathname;
-  const mediaRef = React.useRef();
 
   const selectStation = (item) => {
     const id = item.station.id;
     const url = item.station.listen_url;
 
-    mediaRef.current.pause();
-
     if (current.id === id) {
       dispatch(setCurrentStation({ id: null, url: null }));
     } else {
       dispatch(setCurrentStation({ id, url }));
-      mediaRef.current.load();
-      mediaRef.current.play();
     }
   };
 
@@ -41,7 +33,7 @@ function Main() {
         .then((data) => {
           dispatch(setStations(data));
         })
-        .catch((error) => dispatch(setError(CONNECT_ERROR)));
+        .catch(() => dispatch(setError(CONNECT_ERROR)));
     }
   });
 
@@ -53,12 +45,6 @@ function Main() {
         </div>
       )}
       <div className={'container container--offset_top container--offset_left'}>
-        <audio ref={mediaRef}>
-          <source src={current.url} />
-          Your browser does not support the
-          <code>audio</code> element.
-        </audio>
-
         <div className="stations">
           {loading
             ? items.map((station) => (

@@ -5,7 +5,7 @@
 }
 
 @mixin hovering {
-  @media (hover), (min-width: 0\0), (min--moz-device-pixel-ratio: 0) {
+  @media (hover), (min-width: 0\0), (min-device-pixel-ratio: 0) {
     @content;
   }
 }
