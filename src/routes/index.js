@@ -1,5 +1,5 @@
 import {
-  About, Main, Partners, Support,
+  About, Main, MobileApp, Support,
 } from '../pages';
 
 export const root = '/';
@@ -29,13 +29,13 @@ export const routes = [
   },
   {
     id: 3,
-    path: `${root}partners/`,
+    path: `${root}mobile-app/`,
     name: '',
     exact: true,
-    Сomponent: Partners,
-    title: 'Partners of Scratch.Radio',
-    keywords: 'scratch.radio partners',
-    description: 'Partners of scratch.radio',
+    Сomponent: MobileApp,
+    title: 'Mobile App',
+    keywords: 'scratch.radio application',
+    description: 'Mobile application description',
   },
   {
     id: 4,
