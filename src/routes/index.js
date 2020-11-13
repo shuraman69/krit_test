@@ -8,7 +8,7 @@ export const routes = [
   {
     id: 1,
     path: `${root}`,
-    name: '',
+    name: 'Main',
     exact: true,
     Сomponent: Main,
     title: 'Scratch.Radio',
@@ -30,7 +30,7 @@ export const routes = [
   {
     id: 3,
     path: `${root}partners/`,
-    name: 'Partners',
+    name: '',
     exact: true,
     Сomponent: Partners,
     title: 'Partners of Scratch.Radio',

@@ -12,9 +12,13 @@ function About() {
           Privacy statement
         </span>
         <p className="text text--offset_bottom text-page">
-          The authors of the project do not approve or call for anything, nor do
-          they oppose or support it. All broadcast music is the property of its
-          authors and is provided to radio listeners free of charge.
+          The authors of the project do not approve or call for anything, nor do they oppose or support it. All broadcast music is the property of its authors and is provided to radio listeners free of charge.
+        </p>
+        <span className="text text--theme_gold text--size_sm">
+          Collecting user data
+        </span>
+        <p className="text text--offset_bottom text-page">
+          The site and mobile applications collect user data using Google Analytics. The information is collected anonymously and is used only for the purpose of improving the service.
         </p>
       </div>
     </section>

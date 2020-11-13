@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
- import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './serviceWorker';
 
 import './scss/app.scss';
 import App from './App';
@@ -23,7 +23,9 @@ renderMethod(
 serviceWorker.register({
     onUpdate: registration => {
         alert('Congratulations, a new version is available! Ready?');
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 5000);
         if (registration && registration.waiting) {
             registration.waiting.postMessage({ type: 'SKIP_WAITING' });
         }
