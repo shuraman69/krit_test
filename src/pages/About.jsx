@@ -4,7 +4,7 @@ function About() {
   return (
     <section className="container container--offset_top container--offset_left container--offset_bottom text-page">
       <div className="text-page__item">
-        <h1 className="title">About project</h1>
+        <h1 className="title">About</h1>
         <p className="text text--offset_bottom">
           This project is designed to make scratch music more accessible.
         </p>
