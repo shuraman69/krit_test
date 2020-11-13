@@ -1,5 +1,5 @@
 import {
-  About, Main, MobileApp, Support,
+  About, Main, MobileApp, Support, ThankYouPage
 } from '../pages';
 
 export const root = '/';
@@ -46,5 +46,15 @@ export const routes = [
     title: 'Support project',
     keywords: 'support scratch.radio, donate',
     description: 'Donate to scratch.radio project',
+  },
+  {
+    id: 5,
+    path: `${root}support/thank-you-page/`,
+    name: '',
+    exact: true,
+    Сomponent: ThankYouPage,
+    title: 'Thank you page',
+    keywords: 'support scratch.radio, donate, thank you',
+    description: 'Donate to scratch.radio project, thank you',
   },
 ];
