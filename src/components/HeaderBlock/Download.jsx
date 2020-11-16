@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import appStore from '../../assets/download/app-store.svg';
 import googlePlay from '../../assets/download/google-play.svg';
@@ -8,12 +9,12 @@ function Download() {
     <div className="download">
       <span className="download__title">Download mobile app</span>
       <div className="download__list">
-        <a href="/mobile-app/" className="download__link">
+        <Link to="/mobile-app/" className="download__link">
           <img src={appStore} alt="App Store" className="download__image" />
-        </a>
-        <a href="/mobile-app/" className="download__link">
+        </Link>
+        <Link to="/mobile-app/" className="download__link">
           <img src={googlePlay} alt="Google Play" className="download__image" />
-        </a>
+        </Link>
       </div>
     </div>
   );
