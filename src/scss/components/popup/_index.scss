@@ -2,7 +2,6 @@ $imagesPath: '../../../assets';
 
 .popup {
   background-color: #161616;
-  //background-image: url('#{$imagesPath}/main-background.svg');
   background-repeat: repeat;
   bottom: 0;
   left: 0;
@@ -73,7 +72,7 @@ $imagesPath: '../../../assets';
   &__close {
     left: 0;
     position: absolute;
-    transition: all 0.8s cubic-bezier(0.42, 0, 0.02, 1.05);
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.02, 1.05);
     z-index: 1;
 
     .popup-enter & {

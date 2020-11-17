@@ -12,7 +12,7 @@
 
 .text {
   color: $gray;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
   @include breakpoint(sm) {
     font-size: 16px;
@@ -35,10 +35,7 @@
 
   &--size {
     &_sm {
-      font-size: 10px;
-      @include breakpoint(sm) {
-        font-size: 12px;
-      }
+      font-size: 12px;
       @include breakpoint(md) {
         font-size: 14px;
       }

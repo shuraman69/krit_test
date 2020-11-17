@@ -19,6 +19,16 @@ function Detail({
         onExited={() => setOpenPopup(false)}
       >
         <div className="popup station-detail">
+          <figure className="station-detail__bg">
+            <img src={now_playing?.song.art.includes('200x200') 
+              ? now_playing?.song.art.replace('200x200', '1920x1080') 
+              : now_playing?.song.art} 
+              alt={now_playing.song?.artist
+                ? `${now_playing.song?.title} (${now_playing.song?.artist})`
+                : now_playing.song?.title}
+              className="station-detail__bg-img"
+            />
+          </figure>
           <div className="popup__content">
             <div className="popup__container container">
               <div className="popup__header">
@@ -46,8 +56,12 @@ function Detail({
               </div>
               <figure className="station-detail__figure">
                 <img
-                  src={now_playing?.song.art}
-                  alt={now_playing?.song.text}
+                  src={now_playing?.song.art.includes('200x200') 
+                  ? now_playing?.song.art.replace('200x200', '500x500') 
+                  : now_playing?.song.art}
+                  alt={now_playing.song?.artist
+                    ? `${now_playing.song?.title} (${now_playing.song?.artist})`
+                    : now_playing.song?.title}
                   className="station-detail__image"
                 />
               </figure>

@@ -17,17 +17,20 @@
 .paypal {
   &__field {
     text-align: center;
+
     &--hidden {
       display: none;
     }
   }
+
   &__error {
+    color: $red;
+    text-align: center;
     visibility: hidden;
-    color: red;
-    text-align: center;
   }
+
   &__btn {
-    text-align: center;
     margin-top: 0.625rem;
+    text-align: center;
   }
 }

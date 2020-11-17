@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { root } from '../../routes';
-import { Menu, Contacts, Download, Logo } from './index';
+import {
+  Menu, Contacts, Download, Logo,
+} from './index';
 
 function Header() {
   const [visible, setVisible] = React.useState(false);
@@ -61,7 +63,7 @@ function Header() {
           <div className="header-menu__bottom">
             <Contacts />
             <div className="header-menu__contains">
-              <Download />
+              <Download closeMenu={closeMenu} />
               <Link to={root} className="header-menu__logo logo logo--gray">
                 <Logo />
               </Link>

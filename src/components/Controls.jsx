@@ -24,7 +24,11 @@ function Controls({ mediaRef }) {
       <div className="container controls__container">
         <div className="current-item controls__current-item">
           <figure className="current-item__figure">
-            <img src={now_playing?.song.art} alt={now_playing?.song.text} />
+            <img src={now_playing?.song.art} 
+              alt={now_playing.song?.artist
+                ? `${now_playing.song?.title} (${now_playing.song?.artist})`
+                : now_playing.song?.title} 
+            />
           </figure>
           <div className="current-item__contains">
             <span className="current-item__name">{station.name}</span>

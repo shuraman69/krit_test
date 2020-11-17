@@ -158,8 +158,8 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 1410px;
-  width: calc(100% - 30px);
+  max-width: 1600px;
+  width: calc(100% - 50px);
   @include breakpoint(sm) {
     width: calc(100% - 90px);
   }

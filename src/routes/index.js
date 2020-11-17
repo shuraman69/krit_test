@@ -1,5 +1,5 @@
 import {
-  About, Main, MobileApp, Support, ThankYouPage
+  About, Main, MobileApp, Support, ThankYouPage,
 } from '../pages';
 
 export const root = '/';

@@ -7,9 +7,9 @@
   left: 0;
   overflow: hidden;
   pointer-events: none;
-  position: absolute;
+  position: fixed;
   top: 0;
-  transition: all 0.8s cubic-bezier(0.42, 0, 0.02, 1.05);
+  transition: all 0.4s cubic-bezier(0.42, 0, 0.02, 1.05);
   user-select: none;
   white-space: nowrap;
   width: 100%;
@@ -23,6 +23,7 @@
     padding-top: 45px;
     pointer-events: all;
     position: relative;
+    position: absolute;
     top: 0;
     transition: all 0s;
   }
@@ -38,8 +39,11 @@
   }
 
   &__container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: auto;
     padding-bottom: 33px;
-    padding-left: 15px;
     padding-top: 19px;
     position: relative;
     @include breakpoint(sm) {
@@ -52,9 +56,9 @@
       padding-top: 45px;
     }
     @include breakpoint(lg) {
-      display: flex;
-      flex-direction: column;
+      height: auto;
       justify-content: space-between;
+      overflow: visible;
       padding-left: 10px;
       padding-top: 193px;
     }
@@ -93,6 +97,7 @@
   }
 
   &__list {
+    flex-grow: 1;
     list-style: none;
     margin-bottom: 49px;
     margin-top: 18px;
@@ -106,6 +111,7 @@
       margin-top: 40px;
     }
     @include breakpoint(lg) {
+      flex-grow: auto;
       margin-bottom: 0;
       margin-top: 0;
     }
