@@ -64,7 +64,7 @@ function Header() {
             <Contacts />
             <div className="header-menu__contains">
               <Download closeMenu={closeMenu} />
-              <Link to={root} className="header-menu__logo logo logo--gray">
+              <Link to={root} onClick={closeMenu} className="header-menu__logo logo logo--gray">
                 <Logo />
               </Link>
             </div>
