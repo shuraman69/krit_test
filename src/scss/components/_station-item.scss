@@ -17,6 +17,7 @@ $imagesPath: '../../assets';
   margin-bottom: 10px;
   min-height: 110px;
   padding: 15px;
+  padding-bottom: 37px;
   position: relative;
   transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
   user-select: none;
@@ -159,7 +160,6 @@ $imagesPath: '../../assets';
 
   &__image {
     filter: grayscale(1);
-    height: 100%;
     object-fit: cover;
     position: relative;
     transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
@@ -175,6 +175,7 @@ $imagesPath: '../../assets';
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+    margin-bottom: 5px;
     min-height: 17px;
   }
 

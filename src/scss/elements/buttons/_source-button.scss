@@ -1,0 +1,16 @@
+.source-button {
+  @include hovering {
+    &:hover {
+      svg path {
+        fill: $white;
+      }
+    }
+  }
+
+  svg {
+    @include breakpoint(sm) {
+      height: 21px;
+      width: 21px;
+    }
+  }
+}

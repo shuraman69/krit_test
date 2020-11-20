@@ -17,6 +17,15 @@ function Station({ active = null, onClick = (f) => f, station, now_playing, live
         onClick={onClick}
         className={active ? 'station-item station-item--current' : 'station-item'}
       >
+        <div className="station-item__statuses">
+          {live.is_live && <span className="status station-item__status">live</span>}
+          <span
+            className="status status--more station-item__status"
+            onClick={(e) => openDetailStation(e)}
+          >
+            info
+          </span>
+        </div>
         <div className="station-item__container">
           <figure className="station-item__figure">
             <img
@@ -41,15 +50,6 @@ function Station({ active = null, onClick = (f) => f, station, now_playing, live
               <span className="timer__count">{getTime(now_playing?.duration)}</span>
             </div>
           </div>
-        </div>
-        <div className="station-item__statuses">
-          {live.is_live && <span className="status station-item__status">live</span>}
-          <span
-            className="status status--more station-item__status"
-            onClick={(e) => openDetailStation(e)}
-          >
-            info
-          </span>
         </div>
       </div>
       <Detail
