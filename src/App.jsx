@@ -19,6 +19,9 @@ function App() {
                 <meta name="keywords" content={route.keywords} />
                 <meta name="description" content={route.description} />
                 <title>{route.title}</title>
+                <meta property="og:title" content={route.title} />
+                <meta property="og:description" content={route.description} />
+                <meta property="og:url" content={route.path} />
               </Helmet>
               <route.Сomponent />
             </Route>
