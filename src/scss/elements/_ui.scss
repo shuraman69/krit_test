@@ -52,3 +52,42 @@
     }
   }
 }
+
+.text-center {
+  display: block;
+  text-align: center;
+}
+
+.axis-x-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.color-gold {
+  color: $gold;
+}
+
+.color-black {
+  color: $black;
+}
+
+.color-white {
+  color: $white;
+}
+
+.color-gray {
+  color: $gray;
+}
+
+.color-gray-dark {
+  color: $gray-dark;
+}
+
+.color-gray-light {
+  color: $gray-light;
+}
+
+.color-red {
+  color: $red;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import { Detail } from './index';
 import { getTime } from '../../util/';
@@ -15,7 +16,11 @@ function Station({ active = null, onClick = (f) => f, station, now_playing, live
     <>
       <div
         onClick={onClick}
-        className={active ? 'station-item station-item--current' : 'station-item'}
+        className={classNames({
+          'station-item': true,
+          'station-item--current': active,
+          'station-item--disable': station.description === 'disable',
+        })}
       >
         <div className="station-item__statuses">
           {live.is_live && <span className="status station-item__status">live</span>}
@@ -45,10 +50,12 @@ function Station({ active = null, onClick = (f) => f, station, now_playing, live
                 ? `${now_playing.song?.title} (${now_playing.song?.artist})`
                 : now_playing.song?.title}
             </span>
-            <div className="timer station-item__timer">
-              <span className="timer__count">{getTime(now_playing?.elapsed)}</span>/
-              <span className="timer__count">{getTime(now_playing?.duration)}</span>
-            </div>
+            {!live.is_live && 
+              <div className="timer station-item__timer">
+                <span className="timer__count">{getTime(now_playing?.elapsed)}</span>/
+                <span className="timer__count">{getTime(now_playing?.duration)}</span>
+              </div>
+            }
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
 
@@ -13,19 +13,21 @@ function App() {
       <div className="content">
         <Provider store={store}>
           <Header />
-          {routes.map((route) => (
-            <Route key={route.id} path={route.path} exact>
-              <Helmet>
-                <meta name="keywords" content={route.keywords} />
-                <meta name="description" content={route.description} />
-                <title>{route.title}</title>
-                <meta property="og:title" content={route.title} />
-                <meta property="og:description" content={route.description} />
-                <meta property="og:url" content={route.path} />
-              </Helmet>
-              <route.Сomponent />
-            </Route>
-          ))}
+          <Switch>
+            {routes.map((route) => (
+              <Route key={route.id} path={route.path} exact>
+                <Helmet>
+                  <meta name="keywords" content={route.keywords} />
+                  <meta name="description" content={route.description} />
+                  <title>{route.title}</title>
+                  <meta property="og:title" content={route.title} />
+                  <meta property="og:description" content={route.description} />
+                  <meta property="og:url" content={route.path} />
+                </Helmet>
+                <route.Сomponent />
+              </Route>
+            ))}
+          </Switch>
         </Provider>
       </div>
     </div>
