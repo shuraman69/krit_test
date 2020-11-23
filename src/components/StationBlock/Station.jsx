@@ -19,7 +19,7 @@ function Station({ active = null, onClick = (f) => f, station, now_playing, live
         className={classNames({
           'station-item': true,
           'station-item--current': active,
-          'station-item--disable': station.description === 'disable',
+          'station-item--disable': station.description === 'disable' || (station.description === 'live' && !live.is_live),
         })}
       >
         <div className="station-item__statuses">
@@ -45,12 +45,17 @@ function Station({ active = null, onClick = (f) => f, station, now_playing, live
             <span className="station-item__name">
               {station?.name}
             </span>
-            <span className="station-item__description">
-              {now_playing.song?.artist
-                ? `${now_playing.song?.title} (${now_playing.song?.artist})`
-                : now_playing.song?.title}
-            </span>
-            {!live.is_live && 
+            {station.description === 'live' ? 
+              <span className="station-item__description">
+                {live.streamer_name}
+              </span> :
+              <span className="station-item__description">
+                {now_playing.song?.artist
+                  ? `${now_playing.song?.title} (${now_playing.song?.artist})`
+                  : now_playing.song?.title}
+              </span>
+            }
+            {!station.description === 'live' && 
               <div className="timer station-item__timer">
                 <span className="timer__count">{getTime(now_playing?.elapsed)}</span>/
                 <span className="timer__count">{getTime(now_playing?.duration)}</span>
@@ -65,6 +70,7 @@ function Station({ active = null, onClick = (f) => f, station, now_playing, live
         openPopup={openPopup}
         station={station}
         now_playing={now_playing}
+        live={live}
       />
     </>
   );

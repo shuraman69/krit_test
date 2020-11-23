@@ -12,25 +12,8 @@
   &__contains {
     padding-left: 23px;
   }
-}
 
-.paypal {
-  &__field {
-    text-align: center;
-
-    &--hidden {
-      display: none;
-    }
-  }
-
-  &__error {
-    color: $red;
-    text-align: center;
-    visibility: hidden;
-  }
-
-  &__btn {
-    margin-top: 0.625rem;
-    text-align: center;
+  .paypal {
+    margin-top: 30px;
   }
 }

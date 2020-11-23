@@ -7,7 +7,16 @@ function Detail({
   openPopup,
   station,
   now_playing,
+  live,
 }) {
+
+  const imageBg = (image, id) => {
+    if (image.includes('200x200')) {
+      return image.replace('200x200', '1920x1080')
+    } else {
+      return `/stations-ico/1920x1080_${id}.png`
+    }
+  }
 
   const closePopup = React.useCallback((event) => {
     if (event.key === 'Escape') {
@@ -31,9 +40,7 @@ function Detail({
       >
         <div className="popup station-detail">
           <figure className="station-detail__bg">
-            <img src={now_playing?.song.art.includes('200x200') 
-              ? now_playing?.song.art.replace('200x200', '1920x1080') 
-              : now_playing?.song.art} 
+            <img src={imageBg(now_playing?.song.art, station.id)} 
               alt={now_playing.song?.artist
                 ? `${now_playing.song?.title} (${now_playing.song?.artist})`
                 : now_playing.song?.title}
@@ -65,11 +72,16 @@ function Detail({
                   className="station-detail__image"
                 />
               </figure>
-              <div className="station-detail__description">
-                {now_playing.song?.artist
-                  ? `${now_playing.song?.title} (${now_playing.song?.artist})`
-                  : now_playing.song?.title}
-              </div>
+              {station.description === 'live' ? 
+                <span className="station-detail__description">
+                  {live.streamer_name}
+                </span> :
+                <span className="station-detail__description">
+                  {now_playing.song?.artist
+                    ? `${now_playing.song?.title} (${now_playing.song?.artist})`
+                    : now_playing.song?.title}
+                </span>
+              }
             </div>
           </div>
         </div>

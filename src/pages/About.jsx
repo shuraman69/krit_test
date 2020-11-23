@@ -24,7 +24,9 @@ function About() {
           Based on
         </span>
         <p className="text text--offset_bottom text-page">
-          <a class="link" href="https://www.azuracast.com/" title="Online radio project">Azuracast</a> engine.
+          <a className="link" href="https://www.azuracast.com/" title="Online radio project" target="_blank" rel="noopener noreferrer">Azuracast</a>
+          {' '}
+          engine.
         </p>
       </div>
     </section>
