@@ -20,6 +20,12 @@ function About() {
         <p className="text text--offset_bottom text-page">
           The site and mobile applications collect user data using Google Analytics. The information is collected anonymously and is used only for the purpose of improving the service.
         </p>
+        <span className="text text--theme_gold text--size_sm">
+          Based on
+        </span>
+        <p className="text text--offset_bottom text-page">
+          <a class="link" href="https://www.azuracast.com/" title="Online radio project">Azuracast</a> engine.
+        </p>
       </div>
     </section>
   );
