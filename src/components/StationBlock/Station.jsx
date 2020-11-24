@@ -74,7 +74,7 @@ function Station({
                   : now_playing.song?.title}
               </span>
             )}
-            {!station.description === 'live' && (
+            {station.description !== 'live' && (
               <div className="timer station-item__timer">
                 <span className="timer__count">
                   {getTime(now_playing?.elapsed)}

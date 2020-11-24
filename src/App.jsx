@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
 
@@ -24,6 +24,7 @@ function App() {
                   <meta property="og:description" content={route.description} />
                   <meta property="og:url" content={route.path} />
                 </Helmet>
+                {route.title.includes('404') && <Redirect to="/404" />}
                 <route.Сomponent />
               </Route>
             ))}
