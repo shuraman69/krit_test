@@ -1,13 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { API_URL, CONNECT_ERROR, MAIN_HOST } from '../data';
 import { Station } from '../components';
 import {
   setStations,
   setCurrentStation,
   setError,
 } from '../redux/actions/stations';
-import { API_URL, CONNECT_ERROR, MAIN_HOST } from '../data';
 
 function Main() {
   const dispatch = useDispatch();
@@ -49,7 +49,10 @@ function Main() {
       <div className="container container--offset_top container--offset_left">
         <div className="stations">
           {items.map((item) => {
-            const { description } = item.station;
+            const { id, name, description } = item.station;
+            const { is_live, streamer_name } = item.live;
+            const { elapsed, duration, song } = item.now_playing;
+
             const isShow = window.location.hostname !== MAIN_HOST
               ? description !== 'disable'
               : true;
@@ -57,9 +60,16 @@ function Main() {
             return (
               isShow && (
                 <Station
-                  key={item.station.id}
-                  {...item}
-                  active={item.station.id === current.id}
+                  key={id}
+                  id={id}
+                  name={name}
+                  description={description}
+                  isLive={is_live}
+                  streamerName={streamer_name}
+                  elapsed={elapsed}
+                  duration={duration}
+                  song={song}
+                  active={id === current.id}
                   onClick={() => selectStation(item)}
                 />
               )

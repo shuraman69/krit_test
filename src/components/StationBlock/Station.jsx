@@ -8,40 +8,58 @@ import { getTime } from '../../util';
 function Station({
   active = null,
   onClick = (f) => f,
-  station,
-  now_playing,
-  live,
+  id = null,
+  name = '',
+  description = '',
+  isLive = false,
+  streamerName = '',
+  elapsed = 0,
+  duration = 0,
+  song = {},
 }) {
   const [openPopup, setOpenPopup] = React.useState(false);
+
+  const isDisable = description === 'disable' || (description === 'live' && !isLive);
 
   const openDetailStation = (event) => {
     event.stopPropagation();
     setOpenPopup(!openPopup);
   };
 
+  const descriptionStation = (songObj) => {
+    let string;
+
+    if (description === 'live') {
+      string = streamerName;
+    } else if (songObj?.artist) {
+      string = `${songObj?.title} (${songObj?.artist})`;
+    } else {
+      string = songObj?.title;
+    }
+
+    return string;
+  };
+
   return (
     <>
       <div
         role="button"
-        tabIndex={station.description === 'disable'
-          || (station.description === 'live' && !live.is_live) ? '-1' : '0'}
+        tabIndex={isDisable ? '-1' : '0'}
         onKeyDown={onClick}
         onClick={onClick}
         className={classNames({
           'station-item': true,
           'station-item--current': active,
-          'station-item--disable':
-            station.description === 'disable'
-            || (station.description === 'live' && !live.is_live),
+          'station-item--disable': isDisable,
         })}
       >
         <div className="station-item__statuses">
-          {live.is_live && (
+          {isLive && (
             <span className="status station-item__status">live</span>
           )}
           <span
             role="button"
-            tabIndex="0"
+            tabIndex={isDisable ? '-1' : '0'}
             className="status status--more station-item__status"
             onKeyDown={(event) => openDetailStation(event)}
             onClick={(event) => openDetailStation(event)}
@@ -52,36 +70,24 @@ function Station({
         <div className="station-item__container">
           <figure className="station-item__figure">
             <img
-              src={now_playing?.song.art}
-              alt={
-                now_playing.song?.artist
-                  ? `${now_playing.song?.title} (${now_playing.song?.artist})`
-                  : now_playing.song?.title
-              }
+              src={song?.art}
+              alt={descriptionStation(song)}
               className="station-item__image"
             />
           </figure>
           <div className="station-item__contains">
-            <span className="station-item__name">{station?.name}</span>
-            {station.description === 'live' ? (
-              <span className="station-item__description">
-                {live.streamer_name}
-              </span>
-            ) : (
-              <span className="station-item__description">
-                {now_playing.song?.artist
-                  ? `${now_playing.song?.title} (${now_playing.song?.artist})`
-                  : now_playing.song?.title}
-              </span>
-            )}
-            {station.description !== 'live' && (
+            <span className="station-item__name">{name}</span>
+            <span className="station-item__description">
+              {descriptionStation(song)}
+            </span>
+            {description !== 'live' && (
               <div className="timer station-item__timer">
                 <span className="timer__count">
-                  {getTime(now_playing?.elapsed)}
+                  {getTime(elapsed)}
                 </span>
                 /
                 <span className="timer__count">
-                  {getTime(now_playing?.duration)}
+                  {getTime(duration)}
                 </span>
               </div>
             )}
@@ -92,9 +98,14 @@ function Station({
         setOpenPopup={setOpenPopup}
         openDetailStation={openDetailStation}
         openPopup={openPopup}
-        station={station}
-        now_playing={now_playing}
-        live={live}
+        id={id}
+        name={name}
+        description={descriptionStation(song)}
+        isLive={isLive}
+        streamerName={streamerName}
+        elapsed={elapsed}
+        duration={duration}
+        song={song}
       />
     </>
   );
@@ -103,9 +114,14 @@ function Station({
 Station.propTypes = {
   active: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
-  station: PropTypes.object.isRequired,
-  now_playing: PropTypes.object.isRequired,
-  live: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  isLive: PropTypes.bool.isRequired,
+  streamerName: PropTypes.string.isRequired,
+  elapsed: PropTypes.number.isRequired,
+  duration: PropTypes.number.isRequired,
+  song: PropTypes.object.isRequired,
 };
 
 export default Station;

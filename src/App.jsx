@@ -12,7 +12,6 @@ function App() {
     <div className="main-wrapper">
       <div className="content">
         <Provider store={store}>
-          <Header />
           <Switch>
             {routes.map((route) => (
               <Route key={route.id} path={route.path} exact>
@@ -25,6 +24,7 @@ function App() {
                   <meta property="og:url" content={route.path} />
                 </Helmet>
                 {route.title.includes('404') && <Redirect to="/404" />}
+                {route.header && <Header />}
                 <route.Сomponent />
               </Route>
             ))}
