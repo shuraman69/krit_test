@@ -180,23 +180,18 @@ $imagesPath: '../../assets';
     justify-content: flex-end;
     margin-bottom: 5px;
     min-height: 17px;
-  }
-
-  &__status {
-    margin-left: 12px;
     @include breakpoint(sm) {
       position: absolute;
       right: 33px;
       top: 33px;
     }
+  }
+
+  &__status {
+    margin-left: 12px;
 
     &.status--more {
       display: none;
-      @include breakpoint(lg) {
-        position: absolute;
-        right: 33px;
-        top: 25px;
-      }
 
       .station-item--current & {
         display: flex;

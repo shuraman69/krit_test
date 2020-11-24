@@ -12,7 +12,7 @@ function Detail({
   song,
   // isLive,
 }) {
-  const imageBg = (art) => (art.includes('200x200') ? art.replace('200x200', '1920x1080') : `/stations-ico/1920x1080_${id}.png`);
+  const imageBg = (art) => (art.includes('200x200') ? art.replace('200x200', '1920x1080') : `/stations-ico/1920x1080_${id}.webp`);
 
   const imageStation = (art) => (art.includes('200x200') ? art.replace('200x200', '500x500') : art);
 
