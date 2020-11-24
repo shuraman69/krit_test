@@ -1,5 +1,10 @@
 import {
-  About, Main, MobileApp, NotFound, Support, ThankYouPage,
+  About,
+  Main,
+  MobileApp,
+  NotFound,
+  Support,
+  ThankYouPage,
 } from '../pages';
 
 export const root = '/';

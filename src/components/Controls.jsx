@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-import { getTime } from '../util/';
+import { getTime } from '../util';
 
 function Controls({ mediaRef }) {
   const [playAudio, setPlayAudio] = React.useState(true);
@@ -24,10 +25,11 @@ function Controls({ mediaRef }) {
       <div className="container controls__container">
         <div className="current-item controls__current-item">
           <figure className="current-item__figure">
-            <img src={now_playing?.song.art} 
+            <img
+              src={now_playing?.song.art}
               alt={now_playing.song?.artist
                 ? `${now_playing.song?.title} (${now_playing.song?.artist})`
-                : now_playing.song?.title} 
+                : now_playing.song?.title}
             />
           </figure>
           <div className="current-item__contains">
@@ -38,7 +40,8 @@ function Controls({ mediaRef }) {
                 : now_playing.song?.title}
             </span>
             <span className="timer current-item__timer">
-              <span className="timer__count">{getTime(now_playing?.elapsed)}</span>/
+              <span className="timer__count">{getTime(now_playing?.elapsed)}</span>
+              /
               <span className="timer__count">{getTime(now_playing?.duration)}</span>
             </span>
           </div>
@@ -67,6 +70,7 @@ function Controls({ mediaRef }) {
           <div className="controls__item">
             <button
               type="button"
+              aria-label="Play button"
               className={
                 playAudio
                   ? 'controls__button controls__button--play play-button button pause'
@@ -102,5 +106,9 @@ function Controls({ mediaRef }) {
     </div>
   );
 }
+
+Controls.propTypes = {
+  mediaRef: PropTypes.object.isRequired,
+};
 
 export default Controls;

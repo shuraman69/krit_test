@@ -50,16 +50,18 @@ function Main() {
         <div className="stations">
           {items.map((item) => {
             const { description } = item.station;
-            const isShow = window.location.hostname !== MAIN_HOST ? description !== 'disable' : true;
+            const isShow = window.location.hostname !== MAIN_HOST
+              ? description !== 'disable'
+              : true;
 
             return (
               isShow && (
-              <Station
-                key={item.station.id}
-                {...item}
-                active={item.station.id === current.id}
-                onClick={() => selectStation(item)}
-              />
+                <Station
+                  key={item.station.id}
+                  {...item}
+                  active={item.station.id === current.id}
+                  onClick={() => selectStation(item)}
+                />
               )
             );
           })}

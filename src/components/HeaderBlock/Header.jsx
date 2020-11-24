@@ -39,7 +39,7 @@ function Header() {
       </div>
       <nav className={visible ? 'header-menu visible' : 'header-menu'}>
         <div className="header-menu__container container">
-          <button className="header-menu__button" onClick={toggleMenu}>
+          <button type="button" className="header-menu__button" onClick={toggleMenu}>
             <svg
               width={14}
               height={14}
@@ -64,7 +64,11 @@ function Header() {
             <Contacts />
             <div className="header-menu__contains">
               <Download closeMenu={closeMenu} />
-              <Link to={root} onClick={closeMenu} className="header-menu__logo logo logo--gray">
+              <Link
+                to={root}
+                onClick={closeMenu}
+                className="header-menu__logo logo logo--gray"
+              >
                 <Logo />
               </Link>
             </div>
