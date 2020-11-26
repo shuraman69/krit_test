@@ -23,21 +23,21 @@ const station = (state = initialState, action) => {
         function connect() {
           const ws = new WebSocket(API_WSS + item.station.shortcode);
 
-          ws.onopen = function () {
+          ws.onopen = () => {
             store.dispatch(setError(false));
           };
-          ws.onmessage = function (response) {
+          ws.onmessage = (response) => {
             const data = JSON.parse(response.data);
 
             store.dispatch(setStation(data.station.id, data));
           };
 
-          ws.onerror = function () {
+          ws.onerror = () => {
             store.dispatch(setError(CONNECT_ERROR));
             ws.close();
           };
 
-          ws.onclose = function (event) {
+          ws.onclose = (event) => {
             if (!event.wasClean) {
               store.dispatch(setError(CONNECT_ERROR));
             }

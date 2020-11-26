@@ -28,6 +28,20 @@ function Main() {
     }
   };
 
+  const descStation = (artist, song, desc, streamer, isLive) => {
+    let string;
+
+    if (desc === 'live' || isLive) {
+      string = streamer;
+    } else if (artist) {
+      string = `${song} (${artist})`;
+    } else {
+      string = song;
+    }
+
+    return string;
+  };
+
   React.useEffect(() => {
     if (!loading) {
       fetch(API_URL)
@@ -52,6 +66,7 @@ function Main() {
             const { id, name, description } = item.station;
             const { is_live, streamer_name } = item.live;
             const { elapsed, duration, song } = item.now_playing;
+            const { art, artist, title } = song;
 
             const isShow = window.location.hostname !== MAIN_HOST
               ? description !== 'disable'
@@ -63,12 +78,12 @@ function Main() {
                   key={id}
                   id={id}
                   name={name}
-                  description={description}
+                  status={description}
+                  description={descStation(artist, title, description, streamer_name, is_live)}
                   isLive={is_live}
-                  streamerName={streamer_name}
                   elapsed={elapsed}
                   duration={duration}
-                  song={song}
+                  art={art}
                   active={id === current.id}
                   onClick={() => selectStation(item)}
                 />

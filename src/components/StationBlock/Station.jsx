@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { Detail } from './index';
-import { getTime } from '../../util';
+import { Detail, Timer } from './index';
 
 function Station({
   active = null,
@@ -11,33 +10,19 @@ function Station({
   id = null,
   name = '',
   description = '',
+  status = '',
   isLive = false,
-  streamerName = '',
   elapsed = 0,
   duration = 0,
-  song = {},
+  art = '',
 }) {
   const [openPopup, setOpenPopup] = React.useState(false);
 
-  const isDisable = description === 'disable' || (description === 'live' && !isLive);
+  const isDisable = status === 'disable' || (status === 'live' && !isLive);
 
   const openDetailStation = (event) => {
     event.stopPropagation();
     setOpenPopup(!openPopup);
-  };
-
-  const descriptionStation = (songObj) => {
-    let string;
-
-    if (description === 'live') {
-      string = streamerName;
-    } else if (songObj?.artist) {
-      string = `${songObj?.title} (${songObj?.artist})`;
-    } else {
-      string = songObj?.title;
-    }
-
-    return string;
   };
 
   return (
@@ -49,7 +34,7 @@ function Station({
         onClick={onClick}
         className={classNames({
           'station-item': true,
-          'station-item--current': active,
+          'station-item--current': active && !isDisable,
           'station-item--disable': isDisable,
         })}
       >
@@ -57,40 +42,29 @@ function Station({
           {isLive && (
             <span className="status station-item__status">live</span>
           )}
-          <span
-            role="button"
-            tabIndex={isDisable ? '-1' : '0'}
+          <button
+            type="button"
             className="status status--more station-item__status"
             onKeyDown={(event) => openDetailStation(event)}
             onClick={(event) => openDetailStation(event)}
           >
             info
-          </span>
+          </button>
         </div>
         <div className="station-item__container">
           <figure className="station-item__figure">
             <img
-              src={song?.art}
-              alt={descriptionStation(song)}
+              src={art}
+              alt={description}
               className="station-item__image"
             />
           </figure>
           <div className="station-item__contains">
             <span className="station-item__name">{name}</span>
             <span className="station-item__description">
-              {descriptionStation(song)}
+              {description}
             </span>
-            {description !== 'live' && (
-              <div className="timer station-item__timer">
-                <span className="timer__count">
-                  {getTime(elapsed)}
-                </span>
-                /
-                <span className="timer__count">
-                  {getTime(duration)}
-                </span>
-              </div>
-            )}
+            {(status !== 'live' || isLive) && <Timer duration={duration} elapsed={elapsed} />}
           </div>
         </div>
       </div>
@@ -100,12 +74,11 @@ function Station({
         openPopup={openPopup}
         id={id}
         name={name}
-        description={descriptionStation(song)}
+        description={description}
         isLive={isLive}
-        streamerName={streamerName}
         elapsed={elapsed}
         duration={duration}
-        song={song}
+        art={art}
       />
     </>
   );
@@ -116,12 +89,12 @@ Station.propTypes = {
   onClick: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   isLive: PropTypes.bool.isRequired,
-  streamerName: PropTypes.string.isRequired,
   elapsed: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
-  song: PropTypes.object.isRequired,
+  art: PropTypes.string.isRequired,
 };
 
 export default Station;

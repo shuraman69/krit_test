@@ -10,7 +10,15 @@ function Support() {
         used to pay for server capacity and improve product quality. You can
         make a donation using the forms below.
       </p>
-      <iframe src="https://yoomoney.ru/quickpay/shop-widget?writer=buyer&targets=&targets-hint=My%20name%20and%20my%20email&default-sum=100&button-text=14&payment-type-choice=on&hint=&successURL=https%3A%2F%2Fscratch.radio%2Fsupport%2Fthank-you-page%2F&quickpay=shop&account=4100110355156177" width="100%" height="227" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+      <iframe
+        title="Support us"
+        src="https://yoomoney.ru/quickpay/shop-widget?writer=buyer&targets=&targets-hint=My%20name%20and%20my%20email&default-sum=100&button-text=14&payment-type-choice=on&hint=&successURL=https%3A%2F%2Fscratch.radio%2Fsupport%2Fthank-you-page%2F&quickpay=shop&account=4100110355156177"
+        width="320"
+        height="227"
+        frameBorder="0"
+        allowtransparency="true"
+        scrolling="no"
+      />
     </section>
   );
 }

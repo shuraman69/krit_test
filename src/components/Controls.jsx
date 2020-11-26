@@ -1,48 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 
-import { getTime } from '../util';
-
-function Controls({ mediaRef }) {
-  const [playAudio, setPlayAudio] = React.useState(true);
-
-  const { items, current } = useSelector(({ stations }) => stations);
-  const { station, now_playing } = items.filter((item) => item.station.id === current.id)[0];
-
-  const togglePlayMedia = () => {
-    setPlayAudio(!playAudio);
-
-    if (playAudio) {
-      mediaRef.current.pause();
-    } else {
-      mediaRef.current.play();
-    }
-  };
-
+function Controls() {
   return (
     <div className="controls">
       <div className="container controls__container">
         <div className="current-item controls__current-item">
           <figure className="current-item__figure">
-            <img
-              src={now_playing?.song.art}
-              alt={now_playing.song?.artist
-                ? `${now_playing.song?.title} (${now_playing.song?.artist})`
-                : now_playing.song?.title}
-            />
+            <img src="" alt="" />
           </figure>
           <div className="current-item__contains">
-            <span className="current-item__name">{station.name}</span>
-            <span className="current-item__description">
-              {now_playing.song?.artist
-                ? `${now_playing.song?.title} (${now_playing.song?.artist})`
-                : now_playing.song?.title}
-            </span>
+            <span className="current-item__name">Name</span>
+            <span className="current-item__description">Description</span>
             <span className="timer current-item__timer">
-              <span className="timer__count">{getTime(now_playing?.elapsed)}</span>
+              <span className="timer__count">00</span>
               /
-              <span className="timer__count">{getTime(now_playing?.duration)}</span>
+              <span className="timer__count">00</span>
             </span>
           </div>
         </div>
@@ -71,12 +43,7 @@ function Controls({ mediaRef }) {
             <button
               type="button"
               aria-label="Play button"
-              className={
-                playAudio
-                  ? 'controls__button controls__button--play play-button button pause'
-                  : 'controls__button controls__button--play play-button button'
-              }
-              onClick={togglePlayMedia}
+              className="controls__button controls__button--play play-button button pause"
             />
           </div>
           <button
@@ -106,9 +73,5 @@ function Controls({ mediaRef }) {
     </div>
   );
 }
-
-Controls.propTypes = {
-  mediaRef: PropTypes.object.isRequired,
-};
 
 export default Controls;

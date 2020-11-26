@@ -5,20 +5,19 @@ import { CSSTransition } from 'react-transition-group';
 function Detail({
   setOpenPopup = (f) => f,
   openDetailStation = (f) => f,
-  openPopup,
-  id,
-  name,
-  description,
-  song,
-  // isLive,
+  openPopup = false,
+  id = null,
+  name = '',
+  description = '',
+  art = '',
 }) {
-  const imageBg = (art) => (art.includes('200x200') ? art.replace('200x200', '1920x1080') : `/stations-ico/1920x1080_${id}.webp`);
+  const imageBg = (image) => (image.includes('200x200') ? image.replace('200x200', '1920x1080') : `/stations-ico/1920x1080_${id}.webp`);
 
-  const imageStation = (art) => (art.includes('200x200') ? art.replace('200x200', '500x500') : art);
+  const imageStation = (image) => (image.includes('200x200') ? image.replace('200x200', '500x500') : image);
 
   const closePopup = React.useCallback(
-    (event) => {
-      if (event.key === 'Escape') {
+    ({ key }) => {
+      if (key === 'Escape') {
         setOpenPopup(false);
       }
     },
@@ -41,7 +40,7 @@ function Detail({
       <div className="popup station-detail">
         <figure className="station-detail__bg">
           <img
-            src={imageBg(song?.art)}
+            src={imageBg(art)}
             alt={description}
             className="station-detail__bg-img"
           />
@@ -69,7 +68,7 @@ function Detail({
             </div>
             <figure className="station-detail__figure">
               <img
-                src={imageStation(song?.art)}
+                src={imageStation(art)}
                 alt={description}
                 className="station-detail__image"
               />
@@ -91,7 +90,7 @@ Detail.propTypes = {
   description: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  song: PropTypes.object.isRequired,
+  art: PropTypes.string.isRequired,
 };
 
 export default Detail;
