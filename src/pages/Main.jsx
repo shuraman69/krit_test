@@ -1,18 +1,16 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { API_URL, CONNECT_ERROR, MAIN_HOST } from '../data';
+import { MAIN_HOST } from '../data';
 import { Station } from '../components';
-import {
-  setStations,
-  setCurrentStation,
-  setError,
-} from '../redux/actions/stations';
+import { setCurrentStation } from '../redux/actions/set-current-station';
+import { connectWss } from '../redux/actions/connect-wss';
+import { fetchStations } from '../redux/actions/fetch-stations';
 
 function Main() {
   const dispatch = useDispatch();
   const {
-    items, loading, current, errorMessage,
+    items, loading, current, errorMessage, openWss,
   } = useSelector(
     ({ stations }) => stations,
   );
@@ -22,7 +20,7 @@ function Main() {
     const url = item.station.listen_url;
 
     if (current.id === id) {
-      dispatch(setCurrentStation({ id: null, url: null }));
+      dispatch(setCurrentStation({}));
     } else {
       dispatch(setCurrentStation({ id, url }));
     }
@@ -43,13 +41,10 @@ function Main() {
   };
 
   React.useEffect(() => {
-    if (!loading) {
-      fetch(API_URL)
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch(setStations(data));
-        })
-        .catch(() => dispatch(setError(CONNECT_ERROR)));
+    if (loading) {
+      dispatch(fetchStations());
+    } else if (!openWss) {
+      dispatch(connectWss(items));
     }
   });
 

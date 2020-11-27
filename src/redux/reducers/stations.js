@@ -1,11 +1,7 @@
-import { API_WSS, CONNECT_ERROR } from '../../data';
-import store from '../store';
-import { setStation, setTime, setError } from '../actions/stations';
-
 const Media = new Audio();
 
 const initialState = {
-  loading: false,
+  loading: true,
   current: {
     id: null,
     url: null,
@@ -13,52 +9,17 @@ const initialState = {
   },
   items: [],
   wss: [],
+  openWss: false,
   errorMessage: false,
 };
 
 const station = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_STATIONS': {
-      const wssObj = action.payload.map((item) => {
-        function connect() {
-          const ws = new WebSocket(API_WSS + item.station.shortcode);
-
-          ws.onopen = () => {
-            store.dispatch(setError(false));
-          };
-          ws.onmessage = (response) => {
-            const data = JSON.parse(response.data);
-
-            store.dispatch(setStation(data.station.id, data));
-          };
-
-          ws.onerror = () => {
-            store.dispatch(setError(CONNECT_ERROR));
-            ws.close();
-          };
-
-          ws.onclose = (event) => {
-            if (!event.wasClean) {
-              store.dispatch(setError(CONNECT_ERROR));
-            }
-            setTimeout(connect, 5000);
-          };
-
-          return ws;
-        }
-
-        return connect();
-      });
-
-      setInterval(() => {
-        store.dispatch(setTime());
-      }, 1000);
-
       return {
         ...state,
         items: action.payload,
-        wss: wssObj,
-        loading: true,
+        loading: false,
       };
     }
     case 'SET_CURRENT_STATION': {
@@ -78,7 +39,7 @@ const station = (state = initialState, action) => {
         current: action.payload,
       };
     }
-    case 'SET_STATION': {
+    case 'UPDATE_STATION': {
       const index = state.items.findIndex(
         (item) => item.station.id === action.payload.id,
       );
@@ -89,7 +50,7 @@ const station = (state = initialState, action) => {
       return {
         ...state,
         items: newStateItems,
-        errorMessage: '',
+        errorMessage: false,
       };
     }
     case 'SET_TIME': {
@@ -115,15 +76,20 @@ const station = (state = initialState, action) => {
       return {
         ...state,
         errorMessage: action.payload,
-        // loading: false,
       };
     case 'SET_LOADING':
       return {
         ...state,
         loading: false,
       };
-    default:
+    case 'SET_OPEN_WSS':
+      return {
+        ...state,
+        openWss: true,
+      };
+    default: {
       return state;
+    }
   }
 };
 
