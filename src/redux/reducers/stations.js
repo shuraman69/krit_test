@@ -8,7 +8,6 @@ const initialState = {
     data: {},
   },
   items: [],
-  wss: [],
   openWss: false,
   errorMessage: false,
 };

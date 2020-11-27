@@ -12,8 +12,8 @@ export const connectWss = (items) => (dispatch) => {
         });
       };
 
-      ws.onmessage = (response) => {
-        const item = JSON.parse(response.data);
+      ws.onmessage = ({ data }) => {
+        const item = JSON.parse(data);
         const { id } = item.station;
 
         dispatch({
