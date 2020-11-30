@@ -14,9 +14,9 @@ function App() {
       <div className="main-wrapper">
         <div className="content">
           {errorMessage && (
-          <div className="alert">
-            <span className="alert__description">{errorMessage}</span>
-          </div>
+            <div className="alert">
+              <span className="alert__description">{errorMessage}</span>
+            </div>
           )}
           <Switch>
             {routes.map((route) => (
