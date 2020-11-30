@@ -10,7 +10,7 @@ import { fetchStations } from '../redux/actions/fetch-stations';
 function Main() {
   const dispatch = useDispatch();
   const {
-    items, loading, current, errorMessage, openWss,
+    items, loading, current, openWss,
   } = useSelector(
     ({ stations }) => stations,
   );
@@ -49,45 +49,41 @@ function Main() {
   });
 
   return (
-    <>
-      {errorMessage && (
-        <div className="alert">
-          <span className="alert__description">{errorMessage}</span>
-        </div>
-      )}
-      <div className="container container--offset_top container--offset_left">
-        <div className="stations">
-          {items.map((item) => {
-            const { id, name, description } = item.station;
-            const { is_live, streamer_name } = item.live;
-            const { elapsed, duration, song } = item.now_playing;
-            const { art, artist, title } = song;
+    <div className="container container--offset_top container--offset_left">
+      <div className="stations">
+        {items.map((item) => {
+          const { id, name, description } = item.station;
+          const { is_live, streamer_name } = item.live;
+          const { elapsed, duration, song } = item.now_playing;
+          const {
+            art, artist, title, album,
+          } = song;
 
-            const isShow = window.location.hostname !== MAIN_HOST
-              ? description !== 'disable'
-              : true;
+          const isShow = window.location.hostname !== MAIN_HOST
+            ? description !== 'disable'
+            : true;
 
-            return (
-              isShow && (
-                <Station
-                  key={id}
-                  id={id}
-                  name={name}
-                  status={description}
-                  description={descStation(artist, title, description, streamer_name, is_live)}
-                  isLive={is_live}
-                  elapsed={elapsed}
-                  duration={duration}
-                  art={art}
-                  active={id === current.id}
-                  onClick={() => selectStation(item)}
-                />
-              )
-            );
-          })}
-        </div>
+          return (
+            isShow && (
+            <Station
+              key={id}
+              id={id}
+              name={name}
+              status={description}
+              description={descStation(artist, title, description, streamer_name, is_live)}
+              isLive={is_live}
+              elapsed={elapsed}
+              duration={duration}
+              art={art}
+              album={album}
+              active={id === current.id}
+              onClick={() => selectStation(item)}
+            />
+            )
+          );
+        })}
       </div>
-    </>
+    </div>
   );
 }
 

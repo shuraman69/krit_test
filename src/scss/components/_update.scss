@@ -1,0 +1,53 @@
+@keyframes update-animation {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 25%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+.update {
+  align-items: center;
+  background-color: $black;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10000;
+
+  &__title {
+    color: $gold;
+    display: block;
+    font-size: 26px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  &__desc {
+    margin-bottom: 25px;
+  }
+
+  &-bar {
+    background-color: $gray;
+    height: 10px;
+    max-width: 520px;
+    width: 90%;
+
+    &__line {
+      animation: update-animation 5s linear;
+      animation-fill-mode: both;
+      background-color: $gold;
+      height: 100%;
+      width: 0;
+    }
+  }
+}

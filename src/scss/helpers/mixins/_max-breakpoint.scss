@@ -1,0 +1,5 @@
+@mixin max-breakpoint($bp, $rule: max-width) {
+  @media screen and (#{$rule}: map-get($grid-breakpoints, $bp - 1)) {
+    @content;
+  }
+}

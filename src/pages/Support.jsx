@@ -11,9 +11,10 @@ function Support() {
         make a donation using the forms below.
       </p>
       <iframe
+        className="mt-30"
         title="Support us"
         src="https://yoomoney.ru/quickpay/shop-widget?writer=buyer&targets=&targets-hint=My%20name%20and%20my%20email&default-sum=100&button-text=14&payment-type-choice=on&hint=&successURL=https%3A%2F%2Fscratch.radio%2Fsupport%2Fthank-you-page%2F&quickpay=shop&account=4100110355156177"
-        width="320"
+        width="270"
         height="227"
         frameBorder="0"
         allowtransparency="true"

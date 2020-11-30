@@ -27,12 +27,12 @@ dd {
   margin: 0;
 }
 
-$imagesPath: '../assets';
+$imagesPath: '../../../assets';
 
 body {
   background-color: $black;
-  //background-image: url('#{$imagesPath}/main-background.svg');
-  background-repeat: repeat;
+  // background-image: url('#{$imagesPath}/main-background.svg');
+  // background-repeat: repeat;
   color: $gray;
   line-height: 1.4;
   //min-height: 100vh;
@@ -116,17 +116,13 @@ html {
 
 body {
   font-family: $primary;
-  font-size: $defaultSize;
+  font-size: $base-font-size;
   height: 100%;
 }
 
 .hidden-overflow {
   overflow: hidden;
   position: relative;
-
-  &.bx-no-touch {
-    padding-right: 16px;
-  }
 }
 
 .main-wrapper {

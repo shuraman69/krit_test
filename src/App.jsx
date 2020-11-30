@@ -1,17 +1,23 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
-import { Provider } from 'react-redux';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useSelector } from 'react-redux';
 
 import { Header } from './components';
 import { routes } from './routes';
-import store from './redux/store';
 
 function App() {
+  const { errorMessage } = useSelector(({ stations }) => stations);
+
   return (
-    <div className="main-wrapper">
-      <div className="content">
-        <Provider store={store}>
+    <HelmetProvider>
+      <div className="main-wrapper">
+        <div className="content">
+          {errorMessage && (
+          <div className="alert">
+            <span className="alert__description">{errorMessage}</span>
+          </div>
+          )}
           <Switch>
             {routes.map((route) => (
               <Route key={route.id} path={route.path} exact>
@@ -29,9 +35,9 @@ function App() {
               </Route>
             ))}
           </Switch>
-        </Provider>
+        </div>
       </div>
-    </div>
+    </HelmetProvider>
   );
 }
 

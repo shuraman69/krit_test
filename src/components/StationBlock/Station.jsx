@@ -15,6 +15,7 @@ function Station({
   elapsed = 0,
   duration = 0,
   art = '',
+  album = '',
 }) {
   const [openPopup, setOpenPopup] = React.useState(false);
 
@@ -64,7 +65,7 @@ function Station({
             <span className="station-item__description">
               {description}
             </span>
-            {(status !== 'live' || isLive) && <Timer duration={duration} elapsed={elapsed} />}
+            {(status !== 'live' || isLive) && <Timer duration={duration} elapsed={elapsed} className="station-item__timer" />}
           </div>
         </div>
       </div>
@@ -76,9 +77,8 @@ function Station({
         name={name}
         description={description}
         isLive={isLive}
-        elapsed={elapsed}
-        duration={duration}
         art={art}
+        album={album}
       />
     </>
   );
@@ -95,6 +95,7 @@ Station.propTypes = {
   elapsed: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
   art: PropTypes.string.isRequired,
+  album: PropTypes.string.isRequired,
 };
 
 export default Station;

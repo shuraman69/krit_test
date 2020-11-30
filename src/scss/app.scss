@@ -2,11 +2,8 @@
 @import 'fonts';
 
 // Helpers
-@import 'helpers/vars';
-@import 'helpers/mixins';
-
-// Common
-@import 'common';
+@import 'helpers/index';
+@import 'helpers/base/common';
 
 // Elements
 @import 'elements/main';
@@ -17,6 +14,7 @@
 @import 'components/popup/main';
 @import 'components/station-item';
 @import 'components/alert';
+@import 'components/update';
 
 // Layout
 @import 'layout/header/main';

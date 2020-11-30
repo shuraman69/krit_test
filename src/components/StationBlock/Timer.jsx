@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import { getTime } from '../../util';
 
-function Timer({ elapsed = 0, duration = 0 }) {
+function Timer({ elapsed = 0, duration = 0, className = '' }) {
   return (
-    <div className="timer station-item__timer">
+    <div className={`timer ${className}`}>
       <span className="timer__count">
         {getTime(elapsed)}
       </span>
@@ -20,6 +20,7 @@ function Timer({ elapsed = 0, duration = 0 }) {
 Timer.propTypes = {
   elapsed: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
+  className: PropTypes.string.isRequired,
 };
 
 export default Timer;

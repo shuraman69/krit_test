@@ -18,7 +18,6 @@
     position: fixed;
     top: 0;
     width: 253px;
-    z-index: 9999;
   }
   @include breakpoint(xl) {
     width: 379px;
