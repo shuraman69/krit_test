@@ -48,7 +48,7 @@ export const routes = [
   {
     id: 4,
     path: `${root}support/`,
-    name: 'Support',
+    name: '',
     exact: true,
     header: true,
     Сomponent: Support,
