@@ -65,7 +65,7 @@ function Station({
             <span className="station-item__description">
               {description}
             </span>
-            {(status !== 'live' || isLive) && <Timer duration={duration} elapsed={elapsed} className="station-item__timer" />}
+            {(status !== 'live' && !isLive) && <Timer duration={duration} elapsed={elapsed} className="station-item__timer" />}
           </div>
         </div>
       </div>
