@@ -34,7 +34,7 @@ serviceWorkerRegistration.register({
     }
     setTimeout(() => {
       window.location.reload();
-    }, 5000);
+    }, 2500);
   },
 });
 

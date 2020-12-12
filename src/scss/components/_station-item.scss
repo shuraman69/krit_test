@@ -16,8 +16,7 @@ $imagesPath: '../../assets';
   cursor: pointer;
   margin-bottom: 10px;
   min-height: 110px;
-  padding: 15px;
-  padding-bottom: 37px;
+  padding: 15px 15px 26px;
   position: relative;
   transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
   user-select: none;
@@ -66,8 +65,8 @@ $imagesPath: '../../assets';
   }
 
   &__contains {
-    padding-left: 20px;
-    padding-right: 15px;
+    padding-left: 15px;
+    padding-right: 0px;
     @include breakpoint(sm) {
       padding-left: 0;
       padding-right: 0;
@@ -110,8 +109,8 @@ $imagesPath: '../../assets';
   &__figure {
     align-items: stretch;
     justify-content: stretch;
-    max-width: 65px;
-    min-width: 65px;
+    max-width: 100px;
+    min-width: 100px;
     position: relative;
     transition: all 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
     @include breakpoint(sm) {
@@ -121,14 +120,14 @@ $imagesPath: '../../assets';
       width: 155px;
     }
     @include breakpoint(md) {
-      height: 134px;
+      height: 200px;
       margin-bottom: 20px;
-      width: 134px;
+      width: 200px;
     }
     @include breakpoint(xl) {
-      height: 181px;
+      height: 250px;
       margin-bottom: 34px;
-      width: 181px;
+      width: 250px;
     }
 
     &::after {
@@ -148,12 +147,12 @@ $imagesPath: '../../assets';
         width: 155px;
       }
       @include breakpoint(md) {
-        height: 134px;
-        width: 134px;
+        height: 200px;
+        width: 200px;
       }
       @include breakpoint(xl) {
-        height: 181px;
-        width: 181px;
+        height: 250px;
+        width: 250px;
       }
     }
   }
@@ -179,7 +178,8 @@ $imagesPath: '../../assets';
     flex-wrap: wrap;
     justify-content: flex-end;
     margin-bottom: 5px;
-    min-height: 19px;
+    padding-top: 0px;
+    min-height: 20px;
     @include breakpoint(sm) {
       position: absolute;
       right: 33px;
