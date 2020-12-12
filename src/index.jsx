@@ -7,6 +7,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
 import './scss/app.scss';
+
 import App from './App';
 import { Update } from './components';
 import store from './redux/store';
@@ -32,6 +33,7 @@ serviceWorkerRegistration.register({
     if (registration && registration.waiting) {
       registration.waiting.postMessage({ type: 'SKIP_WAITING' });
     }
+
     setTimeout(() => {
       window.location.reload();
     }, 2500);

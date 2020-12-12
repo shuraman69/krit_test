@@ -46,7 +46,7 @@ function Main() {
     } else if (!openWss) {
       dispatch(connectWss(items));
     }
-  });
+  }, [items]);
 
   return (
     <div className="container container--offset_top container--offset_left">
@@ -65,20 +65,20 @@ function Main() {
 
           return (
             isShow && (
-            <Station
-              key={id}
-              id={id}
-              name={name}
-              status={description}
-              description={descStation(artist, title, description, streamer_name, is_live)}
-              isLive={is_live}
-              elapsed={elapsed}
-              duration={duration}
-              art={art}
-              album={album}
-              active={id === current.id}
-              onClick={() => selectStation(item)}
-            />
+              <Station
+                key={id}
+                id={id}
+                name={name}
+                status={description}
+                description={descStation(artist, title, description, streamer_name, is_live)}
+                isLive={is_live}
+                elapsed={elapsed}
+                duration={duration}
+                art={art}
+                album={album}
+                active={id === current.id}
+                onClick={() => selectStation(item)}
+              />
             )
           );
         })}
