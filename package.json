@@ -1,6 +1,6 @@
 {
-  "name": "radio",
-  "version": "0.1.0",
+  "name": "scratch.radio",
+  "version": "0.9.0",
   "private": true,
   "homepage": "/",
   "dependencies": {

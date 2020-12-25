@@ -19,7 +19,7 @@ function Station({
 }) {
   const [openPopup, setOpenPopup] = React.useState(false);
 
-  const isDisable = status === 'disable' || (status === 'live' && !isLive);
+  const isDisable = status.includes('disable') === true || (status.includes('live') === true && !isLive);
 
   const openDetailStation = (event) => {
     event.stopPropagation();

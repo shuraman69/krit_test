@@ -59,8 +59,8 @@ function Main() {
             art, artist, title, album,
           } = song;
 
-          const isShow = window.location.hostname !== MAIN_HOST
-            ? description !== 'disable'
+          const isShow = window.location.hostname === MAIN_HOST
+            ? description.includes('disable') !== true
             : true;
 
           return (

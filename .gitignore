@@ -27,3 +27,7 @@ yarn-error.log*
 firebase.json
 
 .eslintcache
+
+#seo
+/public/robots.txt*
+/public/sitemao.xml*
