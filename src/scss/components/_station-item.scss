@@ -125,9 +125,9 @@ $imagesPath: '../../assets';
       width: 200px;
     }
     @include breakpoint(xl) {
-      height: 250px;
-      margin-bottom: 34px;
-      width: 250px;
+      height: 215px;
+      margin-bottom: 25px;
+      width: 215px;
     }
 
     &::after {
@@ -151,8 +151,8 @@ $imagesPath: '../../assets';
         width: 200px;
       }
       @include breakpoint(xl) {
-        height: 250px;
-        width: 250px;
+        height: 215px;
+        width: 215px;
       }
     }
   }
@@ -238,9 +238,9 @@ $imagesPath: '../../assets';
           width: 200px;
         }
         @include breakpoint(xl) {
-          height: 250px;
+          height: 215px;
           margin-left: -91px;
-          width: 250px;
+          width: 215px;
         }
       }
 
@@ -258,8 +258,8 @@ $imagesPath: '../../assets';
           width: 200px;
         }
         @include breakpoint(xl) {
-          height: 250px;
-          width: 250px;
+          height: 215px;
+          width: 215px;
         }
       }
     }
