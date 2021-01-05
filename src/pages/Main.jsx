@@ -29,7 +29,7 @@ function Main() {
   const descStation = (artist, song, desc, streamer, isLive) => {
     let string;
 
-    if (desc === 'live' || isLive) {
+    if (desc.includes('live') === true || isLive) {
       string = streamer;
     } else if (artist) {
       string = `${song} (${artist})`;
