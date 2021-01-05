@@ -1,0 +1,5 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target" : { "namespace": "android_app", "package_name": "radio.scratch.twa",
+                   "sha256_cert_fingerprints": ["19:F1:2A:7B:53:07:38:10:EB:C2:21:EC:30:84:B0:BE:17:12:3B:40:44:3D:AC:CF:AE:9F:AD:7B:E1:08:EE:F7"] }
+    }]
