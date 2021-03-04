@@ -33,3 +33,6 @@ firebase.json
 /public/sitemap.xml*
 
 .idea
+
+/include/vendor/
+/include/composer.phar
