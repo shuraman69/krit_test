@@ -31,3 +31,5 @@ firebase.json
 #seo
 /public/robots.txt*
 /public/sitemap.xml*
+
+.idea
