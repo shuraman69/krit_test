@@ -4,7 +4,7 @@
     "music"
   ],
   "description": "This project is designed to make scratch music more accessible.",
-  "display": "fullscreen",
+  "display": "standalone",
   "icons": [{
     "src": "ico/ico-48.png",
     "sizes": "48x48",
