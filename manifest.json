@@ -1,0 +1,50 @@
+{
+  "background_color": "#141414",
+  "categories": [
+    "music"
+  ],
+  "description": "This project is designed to make scratch music more accessible.",
+  "display": "standalone",
+  "icons": [{
+    "src": "ico/ico-48.png",
+    "sizes": "48x48",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }, {
+    "src": "ico/ico-72.png",
+    "sizes": "72x72",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }, {
+    "src": "ico/ico-96.png",
+    "sizes": "96x96",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }, {
+    "src": "ico/ico-144.png",
+    "sizes": "144x144",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }, {
+    "src": "ico/ico-168.png",
+    "sizes": "168x168",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }, {
+    "src": "ico/ico-192.png",
+    "sizes": "192x192",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }, {
+    "src": "ico/ico-512.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }],
+  "lang": "en-US",
+  "name": "Scratch.Radio",
+  "orientation": "portrait-primary",
+  "short_name": "Scratch.Radio",
+  "start_url": ".",
+  "theme_color": "#141414"
+}

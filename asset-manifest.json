@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/krit_test/static/css/main.4747025e.chunk.css",
+    "main.js": "/krit_test/static/js/main.e8f64d5e.chunk.js",
+    "main.js.map": "/krit_test/static/js/main.e8f64d5e.chunk.js.map",
+    "runtime-main.js": "/krit_test/static/js/runtime-main.8da1a374.js",
+    "runtime-main.js.map": "/krit_test/static/js/runtime-main.8da1a374.js.map",
+    "static/js/2.62bbc203.chunk.js": "/krit_test/static/js/2.62bbc203.chunk.js",
+    "static/js/2.62bbc203.chunk.js.map": "/krit_test/static/js/2.62bbc203.chunk.js.map",
+    "static/js/3.f857d409.chunk.js": "/krit_test/static/js/3.f857d409.chunk.js",
+    "static/js/3.f857d409.chunk.js.map": "/krit_test/static/js/3.f857d409.chunk.js.map",
+    "index.html": "/krit_test/index.html",
+    "service-worker.js": "/krit_test/service-worker.js",
+    "service-worker.js.map": "/krit_test/service-worker.js.map",
+    "static/css/main.4747025e.chunk.css.map": "/krit_test/static/css/main.4747025e.chunk.css.map",
+    "static/js/2.62bbc203.chunk.js.LICENSE.txt": "/krit_test/static/js/2.62bbc203.chunk.js.LICENSE.txt",
+    "static/media/app-store.00f22e23.svg": "/krit_test/static/media/app-store.00f22e23.svg",
+    "static/media/detail_bg.b29ae789.png": "/krit_test/static/media/detail_bg.b29ae789.png",
+    "static/media/google-play.e95a0008.svg": "/krit_test/static/media/google-play.e95a0008.svg",
+    "static/media/app.scss": "/krit_test/static/media/station-active.9393881f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8da1a374.js",
+    "static/js/2.62bbc203.chunk.js",
+    "static/css/main.4747025e.chunk.css",
+    "static/js/main.e8f64d5e.chunk.js"
+  ]
+}
